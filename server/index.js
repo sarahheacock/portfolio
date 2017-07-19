@@ -1,23 +1,34 @@
-const express = require('express');
-const path = require('path');
 
+const express = require('express');
 const app = express();
+const refreshRoutes = express.Router();
+const pageRoutes = require("./routes/pageRoutes");
+
+const path = require('path');
+const jsonParser = require("body-parser").json;
+const logger = require("morgan");
+//const config = require('./configure/config');
+
 const PORT = process.env.PORT || 5000;
 
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+//======CONFIGURATION=========================================
+app.use(jsonParser());
+app.use(logger("dev"));
 
-// Answer API requests.
-app.get('/api', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  res.send('{"message":"Hello from the custom server!"}');
-});
+// Priority serve any static files.
+refreshRoutes.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 // All remaining requests return the React app, so it can handle routing.
-app.get('*', function(request, response) {
+refreshRoutes.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });
 
+//========ROUTES===========================================================
+app.use('/page', pageRoutes);
+app.use(refreshRoutes);
+
+
+//======START SERVER====================================================
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
 });

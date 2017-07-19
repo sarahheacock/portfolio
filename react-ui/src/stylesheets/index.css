@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+
+  background-color: WhiteSmoke;
+  position: relative;
+}
+
+.container-fluid {
+  margin: 0px;
+  padding: 0px;
+}
+
+.content {
+  margin-top: 8%;
+  margin-bottom: 3%;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: White;
+  padding: 2%;
+  padding-top: 1%;
+  border-radius: 2%;
+  overflow-x: hidden;
+
+}
