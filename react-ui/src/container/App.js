@@ -31,8 +31,27 @@ class App extends Component {
     console.log("data", data);
     console.log("message", message);
     console.log("current", current);
-    //console.log(window);
+    console.log(window.location);
 
+    if(window.location.hash.slice(1) !== current){
+      //everytime current is updated, so is the url
+      const domain = `${window.location.origin}#${current}`;
+      window.location.href = domain;
+
+      //const element = document.getElementById(current);
+      // const content = document.getElementById("main");
+      // if(window.location.hash.slice(1) === current){
+      //   // const newOffset = element.offsetTop;
+      //   //console.log("new", newOffset);
+      //
+      //   // const off = content.offsetTop;
+      //   // console.log("off", off);
+      //   content.style["margin-top"] = `${0}px`;
+      //   content.style.transition = 'all';
+      // }
+
+      //updateState({current: window.location.hash.slice(1)});
+    }
 
     const sections = Object.keys(data).map((k) => (
       <Section
@@ -53,7 +72,7 @@ class App extends Component {
           updateState={updateState}
         />
 
-        <div className="content">
+        <div id="main" className="content">
           {sections}
         </div>
 

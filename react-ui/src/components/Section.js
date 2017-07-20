@@ -17,11 +17,26 @@ class Section extends React.Component {
   }
 
   render(){
+    const info = (this.props.link === "projects")?
+      this.props.data.map((p) => {
+        return(
+          <a href={p.link}><img src={p.image} className="project" /></a>
+        );
+      }):
+      Object.keys(this.props.data).map((k) => {
+        if(k === "bold"){
+          return(<b>{this.props.data[k]}</b>);
+        }
+        else if(k === "text"){
+          return(<p>{this.props.data[k]}</p>);
+        }
+      });
 
     return (
       <section id={this.props.link}>
         <div className="main-content">
           <PageHeader>{`${this.props.link.charAt(0).toUpperCase()}${this.props.link.slice(1)}`}</PageHeader>
+          {info}
         </div>
       </section>
     );

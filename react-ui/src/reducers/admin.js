@@ -23,6 +23,7 @@ export default function Admin(state={}, action){
 
       else if(keyArr.length === 1 && keyArr[0] === "yPos"){
         let newCurrent = {current: state.current};
+        console.log(action.newState.yPos);
 
         //find positions of links
         const dataKeys = Object.keys(state.data).map(link => {
@@ -37,7 +38,13 @@ export default function Admin(state={}, action){
 
         //choose link
         dataKeys.forEach((k) => {
-          if(k.pos - dataKeys[0]["pos"] <= action.newState.yPos) newCurrent.current = k.link;
+          //buffer for faster scrolling
+          const lower = k.pos * 0.9;
+          const upper = k.pos * 1.1;
+
+          if(action.newState.yPos > lower && action.newState.yPos < upper){
+            newCurrent.current = k.link;
+          }
         });
 
         return {
