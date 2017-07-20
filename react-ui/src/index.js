@@ -16,12 +16,7 @@ import './stylesheets/index.css';
 
 const initial = {
   message: false,
-  current: 'about',
-  data: {
-    about: {},
-    projects: [],
-    contact: {}
-  }
+  current: 'about'
 }
 
 

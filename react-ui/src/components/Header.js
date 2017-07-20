@@ -9,100 +9,45 @@ class Header extends React.Component {
   static propTypes = {
     links: PropTypes.array.isRequired,
     current: PropTypes.string.isRequired,
-    updateState: PropTypes.func.isRequired
+    handleScroll: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired
   }
 
   componentDidMount(){
-    // if(window.location.hash.slice(1) !== this.props.current){
-    //   //everytime current is updated, so is the url
-    //   const domain = `${window.location.origin}#${this.props.current}`;
-    //   window.location.href = domain;
-    //   //this.props.updateState({current: window.location.hash.slice(1)});
-    // }
-    this.handleScroll();
+    this.props.handleScroll();
   }
 
   componentDidUpdate(){
-
-    // content.style["margin-top"] = `0px`;
-    // content.style.transition = 'all 1000ms ease-in-out';
     window.onscroll = (e) => {
       e.preventDefault();
-      this.handleScroll();
+      this.props.handleScroll();
     }
   }
 
-  handleScroll = (e) => {
-
-    const element = document.getElementById(this.props.links[0]);
-    if(element){
-      const buffer = element.offsetTop;
-      const currentOffset = window.pageYOffset;
-      //get current from offset
-      this.props.updateState({"yPos": (buffer + currentOffset)});
-
-
-    }
-  }
+  // handleScroll = (e) => {
+  //   const element = document.getElementById(this.props.links[0]);
+  //   if(element){
+  //     const buffer = element.offsetTop;
+  //     const currentOffset = window.pageYOffset;
+  //     //get current from offset
+  //     this.props.updateState({"yPos": (buffer + currentOffset)});
+  //   }
+  // }
 
   scroll = (e) => {
-    if(e.target) e.preventDefault();
-    const targName = (e.target) ?
-      e.target.name :
-      e;
-    console.log("targName", targName);
-
-    if(this.props.current !== targName){
-      const element = document.getElementById(targName);
-      if(element){
-        //move up
-        const oldOffset = window.pageYOffset;
-        const newOffset = element.offsetTop;
-        const buffer = document.getElementById(this.props.links[0]).offsetTop;
-        const change = buffer - newOffset;
-        //const another = (change > 0) ? buffer : buffer * -1;
-        console.log("oldOffset", oldOffset);
-        console.log("newOffset", newOffset);
-        console.log("buffer", buffer);
-        console.log("change", change);
-
-        const content = document.getElementById("main");
-        //content.style.transform = `translateY(${change}px)`;
-        //console.log("transform", content.style.transform);
-        content.style["margin-top"] = `${change}px`;
-        content.style.transition = 'all 1000ms ease-in-out';
-
-
-        //change
-        setTimeout(() => {
-          console.log(content.style);
-          this.props.updateState({"current": targName});
-        }, 1100);
-
-        //setTimeout(() => { this.props.updateState({"current": targName}); }, 1100);
-
-        //move back down
-
-
-      }
-    }
+    if(e) e.preventDefault();
+    this.props.handleClick({"current": e.target.name})
   }
 
   render(){
-    
-    //
-    // if(window.location.hash.slice(1) === this.props.current){
-    //
-    // }
-
 
     const navItems = this.props.links.map((link, i) => (
       <NavItem
-      key={link}
-      name={link}
-      eventKey={i}
-      href={`#${link}`}
-      onClick={this.scroll}
+        key={link}
+        name={link}
+        eventKey={i}
+        href={`#${link}`}
+        onClick={this.scroll}
       >
         {`${link.charAt(0).toUpperCase()}${link.slice(1)}`}
       </NavItem>
@@ -119,7 +64,7 @@ class Header extends React.Component {
           </Navbar.Header>
 
           <Navbar.Collapse>
-            <Nav className="ml-auto" activeKey={this.props.links.lastIndexOf(window.location.hash.slice(1))} navbar>
+            <Nav className="ml-auto" activeKey={this.props.links.lastIndexOf(this.props.current)} navbar>
               {navItems}
             </Nav>
 
