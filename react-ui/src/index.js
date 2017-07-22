@@ -16,7 +16,8 @@ import './stylesheets/index.css';
 
 const initial = {
   message: false,
-  current: 'about'
+  current: 'about',
+  last: 0
 }
 
 

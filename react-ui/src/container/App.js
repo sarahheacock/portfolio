@@ -17,11 +17,12 @@ import { data } from '../data/data';
 class App extends Component {
   static propTypes = {
     message: PropTypes.bool.isRequired,
-    current: PropTypes.string.isRequired
+    current: PropTypes.string.isRequired,
+    last: PropTypes.number.isRequired
   }
 
   render(){
-    const{ dispatch, message, current } = this.props;
+    const{ dispatch, message, current, last } = this.props;
     const handleClick = bindActionCreators(AdminActionCreators.handleClick, dispatch);
     const handleScroll = bindActionCreators(AdminActionCreators.handleScroll, dispatch);
     //const getData = bindActionCreators(AdminActionCreators.getData, dispatch);
@@ -29,6 +30,7 @@ class App extends Component {
     console.log("");
     console.log("message", message);
     console.log("current", current);
+    console.log("last", last);
 
     const sections = Object.keys(data).map((k) => (
       <Section
@@ -59,7 +61,8 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     message: state.message,
-    current: state.current
+    current: state.current,
+    last: state.last
   }
 );
 

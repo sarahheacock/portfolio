@@ -14,29 +14,31 @@ class Header extends React.Component {
   }
 
   componentDidMount(){
-    this.props.handleScroll();
-  }
-
-  componentDidUpdate(){
+    if(!window.location.hash.includes(this.props.current)){
+      window.location.hash = this.props.current;
+    }
     window.onscroll = (e) => {
       e.preventDefault();
+      //console.log("hi");
       this.props.handleScroll();
+      //also updates url when current changes
+
     }
   }
 
-  // handleScroll = (e) => {
-  //   const element = document.getElementById(this.props.links[0]);
-  //   if(element){
-  //     const buffer = element.offsetTop;
-  //     const currentOffset = window.pageYOffset;
-  //     //get current from offset
-  //     this.props.updateState({"yPos": (buffer + currentOffset)});
+  // componentDidUpdate(){
+  //   if(!window.location.hash.includes(this.props.current)){
+  //     window.location.hash = `${this.props.current}`;
+  //     window.stop();
   //   }
   // }
 
+
   scroll = (e) => {
     if(e) e.preventDefault();
-    this.props.handleClick({"current": e.target.name})
+    const stop = document.getElementById(e.target.name).offsetTop;
+    const start = document.body.scrollTop;
+    this.props.handleClick({"current": e.target.name, "range": (stop - start)});
   }
 
   render(){

@@ -1,6 +1,9 @@
 
 import * as AdminActionTypes from '../actiontypes/admin';
 
+//content
+import { data, buffer } from '../data/data';
+
 
 //==============================================================
 //state={} is overwritten by initialState provided in index.js
@@ -8,134 +11,50 @@ export default function Admin(state={}, action){
   switch (action.type) {
     case AdminActionTypes.HANDLE_SCROLL: {
       //create a scrollspy when scrolling
-      //also updates url when current changes
-      return {
-        ...state
-      }
+      let newState = {...state};
+      const currentOffset = document.body.scrollTop; //current distance scrolled down
+      const direction = state.last > currentOffset; //true means scroll up
+      //if(direction !== state.direction) return newState;
+
+      const dataKeys = Object.keys(data);
+      dataKeys.forEach((k, i) => {
+        //get elements distance from top
+        const element = document.getElementById(k);
+        const previous = (i === 0) ? 0 : document.getElementById(dataKeys[i - 1]);
+
+        //min range of element before changing
+        //scrolling up, min is top edge of previous element
+        //scrolling down, min is top edge of this element
+        const min = (direction) ?
+          ((i === 0) ? 0 : previous.offsetTop):
+          element.offsetTop;
+
+        //max range of element before changing
+        //scrolling up, max is bottom edge of previous element
+        //scrolling down, max is bottom edge of this
+        const max = (direction) ?
+          ((i === 0) ? element.offsetTop - 2 : previous.offsetTop + previous.offsetHeight):
+          element.offsetTop + element.offsetHeight;
+
+        console.log(k + " " + currentOffset + " " + min + " " + max);
+        //console.log("direction " + direction);
+
+        //windows current location is within change, update
+        if(currentOffset >= min && currentOffset < max){
+          //update current position
+          //update url
+          newState.current = k;
+          if(!window.location.hash.includes(k)){
+            window.location.hash = k;
+            window.stop();
+          }
+        }
+      });
+      return {...newState, last: currentOffset};
     }
 
-    case AdminActionTypes.HANDLE_CLICK: {
-      //transitions to correct position
-      //updates url
-      //transitions out
-      return {
-        ...state
-      }
-    }
 
     default:
       return state;
   }
 }
-
-
-
-  //MAKE BETTER LATER
-  //to update data
-
-  // console.log(window.location);
-  //
-  // if(window.location.hash.slice(1) !== current){
-  //   //everytime current is updated, so is the url
-  //   const domain = `${window.location.origin}#${current}`;
-  //   //window.location.href = domain;
-  //
-  //   const content = document.getElementById("main");
-  //   if(content){
-  //     content.style["margin-top"] = `${0}px`;
-  //     content.style.transition = 'all';
-  //
-  //     //const domain = `${window.location.origin}#${current}`;
-  //     window.location.href = domain;
-  //   }
-  // }
-
-  // if(this.props.current !== targName){
-  //   const element = document.getElementById(targName);
-  //   if(element){
-  //     //move up
-  //     const oldOffset = window.pageYOffset;
-  //     const newOffset = element.offsetTop;
-  //     const buffer = document.getElementById(this.props.links[0]).offsetTop;
-  //     const change = buffer - newOffset;
-  //     //const another = (change > 0) ? buffer : buffer * -1;
-  //     console.log("oldOffset", oldOffset);
-  //     console.log("newOffset", newOffset);
-  //     console.log("buffer", buffer);
-  //     console.log("change", change);
-  //
-  //     if(change !== 0){
-  //       const content = document.getElementById("main");
-  //       //content.style.transform = `translateY(${change}px)`;
-  //       //console.log("transform", content.style.transform);
-  //       content.style["margin-top"] = `${change}px`;
-  //       content.style.transition = 'all 1000ms ease-in-out';
-  //
-  //
-  //       //change
-  //       setTimeout(() => {
-  //         console.log(content.style);
-  //         this.props.updateState({"current": targName});
-  //       }, 1100);
-  //     }
-  //
-  //
-  //     //setTimeout(() => { this.props.updateState({"current": targName}); }, 1100);
-  //
-  //     //move back down
-  //
-  //
-  //   }
-  // }
-
-
-//   const keyArr = Object.keys(action.newState);
-//
-//   if(keyArr.length === 1 && (keyArr[0] === "about" || keyArr[0] === "projects" || keyArr[0] === "contact")){
-//     return {
-//       ...state,
-//       data: {
-//         ...state.data,
-//         ...action.newState
-//       }
-//     };
-//   }
-//
-//   else if(keyArr.length === 1 && keyArr[0] === "yPos"){
-//     let newCurrent = {current: state.current};
-//     console.log(action.newState.yPos);
-//
-//     //find positions of links
-//     const dataKeys = Object.keys(state.data).map(link => {
-//       const element = document.getElementById(link);
-//       if(element){
-//         return {
-//           link: link,
-//           pos: element.offsetTop
-//         };
-//       }
-//     });
-//
-//     //choose link
-//     dataKeys.forEach((k) => {
-//       //buffer for faster scrolling
-//       const diff = window.innerHeight * 0.05
-//       const lower = k.pos - diff;
-//       const upper = k.pos + diff;
-//
-//       if(action.newState.yPos > lower && action.newState.yPos < upper){
-//         newCurrent.current = k.link;
-//       }
-//     });
-//
-//     return {
-//       ...state,
-//       ...newCurrent
-//     };
-//   }
-//   else {
-//     //to update anything else
-//     return {...state, ...action.newState};
-//   }
-//
-// }
