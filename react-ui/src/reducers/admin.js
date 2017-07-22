@@ -33,8 +33,8 @@ export default function Admin(state={}, action){
         //scrolling up, max is bottom edge of previous element
         //scrolling down, max is bottom edge of this
         const max = (direction) ?
-          ((i === 0) ? element.offsetTop - 2 : previous.offsetTop + previous.offsetHeight):
-          element.offsetTop + element.offsetHeight;
+          ((i === 0) ? element.offsetTop - 1 : previous.offsetTop + previous.offsetHeight - 2):
+          element.offsetTop + element.offsetHeight - 2;
 
         console.log(k + " " + currentOffset + " " + min + " " + max);
         //console.log("direction " + direction);
