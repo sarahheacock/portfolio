@@ -9,46 +9,56 @@ class Header extends React.Component {
   static propTypes = {
     links: PropTypes.array.isRequired,
     current: PropTypes.string.isRequired,
+    sections: PropTypes.object.isRequired,
     handleScroll: PropTypes.func.isRequired,
-    handleClick: PropTypes.func.isRequired
+    handleClick: PropTypes.func.isRequired,
+    handleResize: PropTypes.func.isRequired,
   }
 
   componentDidMount(){
-    if(!window.location.hash.includes(this.props.current)){
-      window.location.hash = this.props.current;
-    }
-    window.onscroll = (e) => {
-      e.preventDefault();
-      //console.log("hi");
-      this.props.handleScroll();
-      //also updates url when current changes
-
-    }
+    this.myResizeFunc();
   }
 
-  // componentDidUpdate(){
-  //   if(!window.location.hash.includes(this.props.current)){
-  //     window.location.hash = `${this.props.current}`;
-  //     window.stop();
-  //   }
-  // }
+  myScrollFunc = (e) => {
+    e.preventDefault();
+    this.props.handleScroll();
+  }
 
+  myResizeFunc = (e) => {
+    this.props.handleResize();
+  }
 
   scroll = (e) => {
     if(e) e.preventDefault();
-    const stop = document.getElementById(e.target.name).offsetTop;
-    const start = document.body.scrollTop;
-    this.props.handleClick({"current": e.target.name, "range": (stop - start)});
+    window.removeEventListener("scroll", this.myScrollFunc);
+
+    const i = this.props.links.lastIndexOf(e.target.name);
+    const length = this.props.links.length - 1;
+
+    const stop = this.props.sections[e.target.name]["min"];
+    // const stop = (i === length) ?
+    //   Math.floor(document.body.scrollHeight) - Math.floor(window.innerHeight):
+    //   temp;
+    const start = Math.floor(document.body.scrollTop);
+    console.log(start);
+    console.log(stop);
+
+    this.props.handleClick({
+      "stop": stop,
+      "range": Math.abs( Math.ceil((stop - start) / 2) ),
+      "current": e.target.name
+    });
   }
 
   render(){
+    window.addEventListener("scroll", this.myScrollFunc);
+    window.addEventListener("resize", this.myResizeFunc);
 
     const navItems = this.props.links.map((link, i) => (
       <NavItem
         key={link}
         name={link}
         eventKey={i}
-        href={`#${link}`}
         onClick={this.scroll}
       >
         {`${link.charAt(0).toUpperCase()}${link.slice(1)}`}

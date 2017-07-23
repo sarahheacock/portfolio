@@ -8,16 +8,27 @@ import thunk from 'redux-thunk'
 
 import AdminReducer from './reducers/admin';
 
+//content
+import { data } from './data/data';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './stylesheets/index.css';
 //=============================================================\
 
+let sections = {};
+Object.keys(data).forEach(k =>
+  sections[k] = {
+    min: 0,
+    max: 0
+  }
+)
 
 const initial = {
   message: false,
   current: 'about',
-  last: 0
+  last: 0,
+  sections: sections
 }
 
 

@@ -18,21 +18,24 @@ class App extends Component {
   static propTypes = {
     message: PropTypes.bool.isRequired,
     current: PropTypes.string.isRequired,
-    last: PropTypes.number.isRequired
+    last: PropTypes.number.isRequired,
+    sections: PropTypes.object.isRequired
   }
 
   render(){
-    const{ dispatch, message, current, last } = this.props;
+    const{ dispatch, message, current, last, sections } = this.props;
     const handleClick = bindActionCreators(AdminActionCreators.handleClick, dispatch);
     const handleScroll = bindActionCreators(AdminActionCreators.handleScroll, dispatch);
+    const handleResize = bindActionCreators(AdminActionCreators.handleResize, dispatch);
     //const getData = bindActionCreators(AdminActionCreators.getData, dispatch);
 
     console.log("");
-    console.log("message", message);
+    // console.log("message", message);
     console.log("current", current);
-    console.log("last", last);
+    // console.log("last", last);
+    console.log("sections", JSON.stringify(sections, undefined, 2));
 
-    const sections = Object.keys(data).map((k) => (
+    const sect = Object.keys(data).map((k) => (
       <Section
         key={k}
         link={k}
@@ -47,10 +50,12 @@ class App extends Component {
           current={current}
           handleScroll={handleScroll}
           handleClick={handleClick}
+          sections={sections}
+          handleResize={handleResize}
         />
 
         <div id="main" className="content">
-          {sections}
+          {sect}
         </div>
 
       </div>
@@ -62,7 +67,8 @@ const mapStateToProps = state => (
   {
     message: state.message,
     current: state.current,
-    last: state.last
+    last: state.last,
+    sections: state.sections
   }
 );
 
