@@ -9,6 +9,7 @@ import * as AdminActionCreators from '../actions/admin';
 //components
 import Header from '../components/Header';
 import Section from '../components/Section';
+import Footer from '../components/Footer';
 
 //content
 import { data } from '../data/data';
@@ -32,8 +33,9 @@ class App extends Component {
     console.log("");
     // console.log("message", message);
     console.log("current", current);
-    // console.log("last", last);
+    console.log("last", last);
     console.log("sections", JSON.stringify(sections, undefined, 2));
+
 
     const sect = Object.keys(data).map((k) => (
       <Section
@@ -45,6 +47,7 @@ class App extends Component {
 
     return (
       <div className="container-fluid">
+        
         <Header
           links={Object.keys(data)}
           current={current}
@@ -57,6 +60,10 @@ class App extends Component {
         <div id="main" className="content">
           {sect}
         </div>
+
+        <Footer
+
+        />
 
       </div>
     );

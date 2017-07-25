@@ -1,10 +1,27 @@
+header {
+  background-image: url(https://static.pexels.com/photos/34676/pexels-photo.jpg);
+  background-size: cover;
+  background-position: center top;
+  height: 100vh;
+  background-attachment: fixed;
+  width: 100%;
+  padding: 0px;
+
+}
+
+.headerText {
+  padding-top: 20%;
+  color: White;
+}
+
 body {
   margin: 0 auto;
   padding: 0;
-  font-family: sans-serif;
+  font-family: serif;
 
-  background-color: WhiteSmoke;
+  background-color: #e2e9e6;
   position: relative;
+  color: DimGray
 }
 
 .container-fluid {
@@ -13,9 +30,50 @@ body {
 }
 
 .content {
+  border-radius: 10%;
   margin-top: 8%;
   margin-bottom: 3%;
 }
+
+.access{
+  margin-bottom: 5%;
+  margin-left: 2%;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: auto;
+}
+
+.foot {
+  padding-bottom: 5%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.foot a {
+  color: DimGray;
+  padding: 1%;
+  width: 200%;
+}
+
+.faheart {
+  color: #CDB7B5
+}
+
+.facoffee {
+  color: #8B795E;
+}
+
+.falinked:hover {
+  color: #4682B4;
+  background: White;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+
 
 .main-content {
   max-width: 800px;
@@ -23,8 +81,23 @@ body {
   background-color: White;
   padding: 2%;
   padding-top: 1%;
-  border-radius: 2%;
+}
 
+.section-content{
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.every-other {
+  background-color: WhiteSmoke;
+}
+
+.white-border{
+  border-color: White;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+  width: 80%;
 }
 
 /*#projects{
@@ -32,5 +105,6 @@ body {
 }*/
 
 .project{
-  width: 400px;
+  height: 250px;
+  width: 300px;
 }

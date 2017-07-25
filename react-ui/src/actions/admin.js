@@ -1,7 +1,7 @@
 import * as AdminActionTypes from '../actiontypes/admin';
 import axios from 'axios';
 
-import { buffer } from '../data/data';
+import { buffer, windowOffset } from '../data/data';
 
 //=======================================================
 export const handleResize = () => {
@@ -10,10 +10,9 @@ export const handleResize = () => {
   }
 }
 
-export const handleScroll = (newCurrent) => {
+export const handleScroll = () => {
   return {
-    type: AdminActionTypes.HANDLE_SCROLL,
-    newCurrent
+    type: AdminActionTypes.HANDLE_SCROLL
   }
 }
 
@@ -21,10 +20,11 @@ export const handleScroll = (newCurrent) => {
 export const handleClick = (newState) => {
   return(dispatch) => {
     //transitions to correct position
-    const max = 10;
+    const max = Math.floor(newState.range/20);
+    console.log("max", max);
 
     const stop = newState.stop;
-    const start = Math.ceil(document.body.scrollTop);
+    const start = windowOffset();
     const x = Math.abs(stop - start);
 
     const a = max * -1 / Math.pow(newState.range, 2);
@@ -33,14 +33,14 @@ export const handleClick = (newState) => {
     const change = (y <= 0) ? 1 : y;
     const time = 0.0001;
 
-    console.log("range", newState.range);
-    console.log("x", x);
-    console.log("a", a);
-    console.log("pow", pow);
-
-    console.log("stop", stop);
-    console.log("start", start);
-    console.log("change", change);
+    // console.log("range", newState.range);
+    // console.log("x", x);
+    // console.log("a", a);
+    // console.log("pow", pow);
+    //
+    // console.log("stop", stop);
+    // console.log("start", start);
+    // console.log("change", change);
 
     if(stop > start) {
       if(stop - start < change) document.body.scrolltop = stop;
@@ -50,15 +50,13 @@ export const handleClick = (newState) => {
       if(start - stop < change) document.body.scrolltop = stop;
       else document.body.scrollTop -= change;
     }
+    else if(start === stop){
+      return dispatch(handleScroll());
+    }
 
 
     return window.setTimeout(function(){
-      if(start === stop){
-        return dispatch(handleScroll(newState.current));
-      }
-      else {
-        return dispatch(handleClick(newState));
-      }
+      return dispatch(handleClick(newState));
     }, time);
 
   }

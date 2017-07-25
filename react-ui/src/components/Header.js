@@ -1,8 +1,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-//import Scrollspy from 'react-scrollspy'
+import { windowOffset } from '../data/data';
 import { Nav, Navbar, NavItem, Image } from 'react-bootstrap';
+
+var FaCircle = require('react-icons/lib/fa/circle-o');
 
 
 class Header extends React.Component {
@@ -11,35 +13,30 @@ class Header extends React.Component {
     current: PropTypes.string.isRequired,
     sections: PropTypes.object.isRequired,
     handleScroll: PropTypes.func.isRequired,
-    handleClick: PropTypes.func.isRequired,
     handleResize: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
   }
 
   componentDidMount(){
-    this.myResizeFunc();
+    window.addEventListener("load", this.props.handleResize);
+    window.addEventListener("resize", this.props.handleResize);
+
+    window.addEventListener("scroll", this.props.handleScroll);
   }
 
-  myScrollFunc = (e) => {
-    e.preventDefault();
-    this.props.handleScroll();
+  componentWillUnmount(){
+    window.removeEventListener("load", this.props.handleResize);
+    window.removeEventListener("resize", this.props.handleResize);
+
+    window.removeEventListener("scroll", this.props.handleScroll);
   }
 
-  myResizeFunc = (e) => {
-    this.props.handleResize();
-  }
 
   scroll = (e) => {
     if(e) e.preventDefault();
-    window.removeEventListener("scroll", this.myScrollFunc);
-
-    const i = this.props.links.lastIndexOf(e.target.name);
-    const length = this.props.links.length - 1;
 
     const stop = this.props.sections[e.target.name]["min"];
-    // const stop = (i === length) ?
-    //   Math.floor(document.body.scrollHeight) - Math.floor(window.innerHeight):
-    //   temp;
-    const start = Math.floor(document.body.scrollTop);
+    const start = windowOffset();
     console.log(start);
     console.log(stop);
 
@@ -51,8 +48,6 @@ class Header extends React.Component {
   }
 
   render(){
-    window.addEventListener("scroll", this.myScrollFunc);
-    window.addEventListener("resize", this.myResizeFunc);
 
     const navItems = this.props.links.map((link, i) => (
       <NavItem
@@ -61,12 +56,21 @@ class Header extends React.Component {
         eventKey={i}
         onClick={this.scroll}
       >
-        {`${link.charAt(0).toUpperCase()}${link.slice(1)}`}
+        {`${link.toUpperCase()}`}
       </NavItem>
     ))
 
     return (
       <div>
+        <header>
+          <h1 className="text-center headerText">{("Sarah Heacock").toUpperCase()}
+            <hr />
+            <FaCircle />
+            <br /><br />
+            Aspiring Software Developer
+          </h1>
+        </header>
+
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >

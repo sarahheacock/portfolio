@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 
 
 const Projects = (props) => {
-  const projects = (props.data.portfolio).map((p) => (
-    <a href={p.url} key={p.image}>
-      <img className="project" src={p.image} />
-    </a>
+  const projects = (props.data.portfolio).map((p, i) => (
+    <div className="access" key={`project${i}`}>
+      <a href={p.url}>
+        <img className="project" src={p.image} />
+      </a>
+    </div>
   ));
 
   return (
-    <div>
+    <div className="flex-container">
       {projects}
     </div>
   );

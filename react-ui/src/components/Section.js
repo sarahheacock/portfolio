@@ -15,12 +15,13 @@ const Section = (props) => {
       <Projects data={props.data} />:
       <Contact data={props.data} />
     );
+  const cl = (Title === "Projects") ? "main-content" : "main-content every-other";
 
   return (
     <section id={props.link}>
-      <div className="main-content">
+      <div className={cl}>
         <PageHeader>{Title}</PageHeader>
-        {content}
+        <div className="section-content">{content}</div>
       </div>
     </section>
   );
