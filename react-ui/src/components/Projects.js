@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ProjectModal from './ProjectModal';
 
 const Projects = (props) => {
   const projects = (props.data.portfolio).map((p, i) => (
     <div className="access" key={`project${i}`}>
-      <a href={p.url}>
+      <a href="#" value={i} onClick={(e) => {
+        if(e) e.preventDefault();
+        props.updateState({project: i});
+      }}>
         <img className="project" src={p.image} />
+        <h3>{p.title}</h3>
       </a>
     </div>
   ));
@@ -14,6 +19,10 @@ const Projects = (props) => {
   return (
     <div className="flex-container">
       {projects}
+      <ProjectModal
+        updateState={props.updateState}
+        data={props.data.portfolio[props.project]}
+      />
     </div>
   );
 }
@@ -21,5 +30,7 @@ const Projects = (props) => {
 export default Projects;
 
 Projects.propsTypes = {
-  data: PropTypes.object.isRequired
+  project: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
+  updateState: PropTypes.func.isRequired
 };

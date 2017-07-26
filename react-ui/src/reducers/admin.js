@@ -10,6 +10,12 @@ const dataKeys = Object.keys(data);
 export default function Admin(state={}, action){
 
   switch (action.type) {
+    case AdminActionTypes.UPDATE_STATE: {
+      return {
+        ...state,
+        ...action.newState
+      };
+    }
 
     case AdminActionTypes.HANDLE_RESIZE: {
       let sections = {};
@@ -22,7 +28,7 @@ export default function Admin(state={}, action){
         const element = document.getElementById(k);
         if(element){
           const diff = Math.floor(element.scrollHeight || element.clientHeight); // height of section
-          
+
           sections[k] = {
             min: Math.floor(element.offsetTop),
             max: Math.floor(element.offsetTop) + diff - 1

@@ -7,10 +7,10 @@ const About = (props) => {
   return (
     <div>
       <Row className="clear-fix">
-        <Col sm={5}>
+        <Col sm={5} className="columns">
           <img src={props.data.image} alt="me" className="white-border" />
         </Col>
-        <Col sm={7}>
+        <Col sm={7} className="columns">
           <b>{props.data.bold}</b>
           <p>{props.data.text}</p>
         </Col>

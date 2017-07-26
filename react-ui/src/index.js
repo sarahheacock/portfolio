@@ -9,10 +9,10 @@ import thunk from 'redux-thunk'
 import AdminReducer from './reducers/admin';
 
 //content
-import { data } from './data/data';
+import { data, messageData } from './data/data';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+// import '/bootstrap/dist/css/bootstrap.css';
+// import '/bootstrap/dist/css/bootstrap-theme.css';
 import './stylesheets/index.css';
 //=============================================================\
 
@@ -22,10 +22,16 @@ Object.keys(data).forEach(k =>
     min: 0,
     max: 0
   }
-)
+);
+
+let message = {};
+Object.keys(messageData).forEach(k =>
+  message[k] = ''
+);
 
 const initial = {
-  message: false,
+  project: -1,
+  message: message,
   current: 'about',
   last: 0,
   sections: sections

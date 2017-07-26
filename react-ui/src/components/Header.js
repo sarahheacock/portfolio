@@ -11,6 +11,7 @@ class Header extends React.Component {
   static propTypes = {
     links: PropTypes.array.isRequired,
     current: PropTypes.string.isRequired,
+    last: PropTypes.number.isRequired,
     sections: PropTypes.object.isRequired,
     handleScroll: PropTypes.func.isRequired,
     handleResize: PropTypes.func.isRequired,
@@ -20,15 +21,24 @@ class Header extends React.Component {
   componentDidMount(){
     window.addEventListener("load", this.props.handleResize);
     window.addEventListener("resize", this.props.handleResize);
+    window.addEventListener('backbutton', (e) => console.log(e, "button"));
 
-    window.addEventListener("scroll", this.props.handleScroll);
+    window.addEventListener("scroll", this.onScroll);
   }
 
   componentWillUnmount(){
     window.removeEventListener("load", this.props.handleResize);
     window.removeEventListener("resize", this.props.handleResize);
+    window.removeEventListener("backbutton", (e) => console.log(e, "button"));
 
-    window.removeEventListener("scroll", this.props.handleScroll);
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
+  onScroll = (e) => {
+    const currentOffset = windowOffset();
+    const diff = Math.abs(currentOffset - this.props.last);
+
+    if(diff > 15) this.props.handleScroll(); //'if' is just to reduce function calls
   }
 
 
@@ -67,7 +77,7 @@ class Header extends React.Component {
             <hr />
             <FaCircle />
             <br /><br />
-            Aspiring Software Developer
+            Web Developer
           </h1>
         </header>
 

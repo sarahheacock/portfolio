@@ -7,26 +7,108 @@ export const data = {
   projects: {
     portfolio: [
       {
-        url: "#",
-        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
+        url: {
+          final: "#",
+          prototype: "#",
+          github: "#",
+        },
+        title: "Patty's Pets",
+        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        info: {
+          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
+          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
+          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+        }
       },
       {
-        url: "#",
-        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
+        url: {
+          final: "#",
+          prototype: "#",
+          github: "#",
+        },
+        title: "Nancy Darr Publications",
+        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        info: {
+          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
+          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
+          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+        }
       },
       {
-        url: "#",
-        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
+        url: {
+          final: "#",
+          prototype: "#",
+          github: "#",
+        },
+        title: "Bed and Breakfast",
+        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        info: {
+          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
+          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
+          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+        }
       }
     ]
   },
   contact: {
-    bold: "Oh. You need a little dummy text for your mockup? How quaint.",
-    text: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist. Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over. Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+    bold: "Want to get in touch?",
+    text: ["Whether you have any questions about my work, or have some feedback for me--I would love to hear from you!", "I will respond A.S.A.P." ,"" ,"Note: No spam/soliciting pour moi, merci."]
   }
 }
 
-export const buffer = 10;
+export const projectURL = {
+  github: {
+    icon: 'fa fa-github fa-lg',
+    text: 'View Github Code'
+  },
+  prototype: {
+    icon: 'fa fa-globe fa-lg',
+    text: 'View Prototype'
+  },
+  final: {
+    icon: 'fa fa-globe fa-lg',
+    text: 'View Final Product'
+  }
+}
+
+export const messageData = {
+  name: {
+    type: 'text',
+    placeholder: 'Your Name',
+    componentClass: 'input'
+  },
+  email: {
+    type: 'email',
+    placeholder: 'Email Address',
+    componentClass: 'input'
+  },
+  phone: {
+    type: 'text',
+    placeholder: 'Phone Number',
+    componentClass: 'input'
+  },
+  message: {
+    type: 'text',
+    placeholder: 'Message',
+    componentClass: 'textarea'
+  },
+  error: ''
+
+};
+
+export const messageStatus = {
+  error: 'Unable to send message',
+  formError: '* Fill out required fields',
+  success: 'Message Sent! I will get back to you as soon as I can.'
+}
+
+// export const url = 'https://hooks.slack.com/services/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';
+
+export const links = {
+  github: 'https://github.com/sarahheacock',
+  fcc: 'https://www.freecodecamp.org/sarahheacock',
+  linkedin: 'https://www.linkedin.com/in/sarah-heacock-ab8677126'
+};
 
 //these are functions so that they return updated dimensions when called
 export const windowOffset = () => Math.floor(window.pageYOffset ||

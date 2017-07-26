@@ -1,5 +1,5 @@
 header {
-  background-image: url(https://static.pexels.com/photos/34676/pexels-photo.jpg);
+  background-image: url(https://images.pexels.com/photos/34676/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb);
   background-size: cover;
   background-position: center top;
   height: 100vh;
@@ -35,9 +35,86 @@ body {
   margin-bottom: 3%;
 }
 
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: White;
+  padding: 2%;
+  padding-top: 1%;
+}
+
+.section-content{
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.every-other {
+  background-color: WhiteSmoke;
+}
+
+.white-border{
+  border-color: White;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+  width: 80%;
+  max-width: 200px;
+}
+
+.columns {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 5%;
+}
+
+
+.project{
+  height: 200px;
+  width: 250px;
+}
+
 .access{
+
   margin-bottom: 5%;
   margin-left: 2%;
+  opacity: 1.0;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+  zoom: 100%;
+
+  -webkit-transition: opacity 2s, box-shadow 0s, zoom 5s; /* Safari */
+  -webkit-transition-timing-function: ease-in-out;
+  transition: opacity 2s, box-shadow 0s, zoom 5s;
+  transition-timing-function: ease-in-out;
+}
+
+.access h3{
+  position: absolute;
+
+  padding: 1%;
+  opacity: 0.0;
+  margin-top: -50px;
+  text-align: center;
+
+  color: White;
+  letter-spacing: -1px;
+   /* fallback color */
+  background: rgba(0,0,0,0.9);
+  width: 250px;
+
+  -webkit-transition: opacity 2s; /* Safari */
+  transition: opacity 2s;
+}
+
+.access:hover{
+  opacity: 0.7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  zoom: 105%;
+}
+
+.access:hover h3{
+  opacity: 1.0;
 }
 
 .flex-container {
@@ -45,6 +122,26 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   height: auto;
+}
+
+.linkButton {
+  width: 50%;
+  margin: 1%;
+  /*color: White;*/
+}
+
+.github {
+  /*background-image: linear-gradient(to bottom,MidnightBlue 0,MidnightBlue 100%);*/
+
+  text-shadow: 0;
+}
+
+.prototype {
+
+}
+
+.final {
+
 }
 
 .foot {
@@ -67,44 +164,38 @@ body {
   color: #8B795E;
 }
 
-.falinked:hover {
-  color: #4682B4;
+.link {
+  border-color: DimGray;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+
+  width: 40px;
+  margin: 2%;
+  padding: 1%;
+}
+
+.link:hover{
   background: White;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
-
-
-.main-content {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: White;
-  padding: 2%;
-  padding-top: 1%;
+.falinked:hover {
+  color: #4682B4;
+  border-color: #4682B4;
 }
 
-.section-content{
-  max-width: 700px;
-  margin: 0 auto;
+.fcc:hover{
+  color: DarkGreen;
+  border-color: DarkGreen;
 }
 
-.every-other {
-  background-color: WhiteSmoke;
-}
 
-.white-border{
-  border-color: White;
-  border-width: 10px;
-  border-style: solid;
-  border-radius: 50%;
-  width: 80%;
+.git:hover{
+  color: MidnightBlue;
+  border-color: MidnightBlue;
 }
 
 /*#projects{
   position: relative;
 }*/
-
-.project{
-  height: 250px;
-  width: 300px;
-}

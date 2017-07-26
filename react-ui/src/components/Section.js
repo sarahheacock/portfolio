@@ -12,8 +12,17 @@ const Section = (props) => {
   const content = (Title === "About") ?
     <About data={props.data}/> :
     ((Title === "Projects") ?
-      <Projects data={props.data} />:
-      <Contact data={props.data} />
+      <Projects
+        data={props.data}
+        project={props.project}
+        updateState={props.updateState}
+      />:
+      <Contact
+        data={props.data}
+        message={props.message}
+        updateState={props.updateState}
+        sayHello={props.sayHello}
+      />
     );
   const cl = (Title === "Projects") ? "main-content" : "main-content every-other";
 
@@ -30,6 +39,10 @@ const Section = (props) => {
 export default Section;
 
 Section.propsTypes = {
+  project: PropTypes.number.isRequired,
   link: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  message: PropTypes.object.isRequired,
+  updateState: PropTypes.func.isRequired,
+  sayHello: PropTypes.func.isRequired
 }
