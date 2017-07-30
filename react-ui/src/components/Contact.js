@@ -8,7 +8,8 @@ const Contact = (props) => {
   return (
     <Row className="clear-fix">
       <Col sm={6} className="columns">
-        <b>{props.data.bold}</b>
+        <h3>{props.data.bold}</h3>
+        <hr />
         {props.data.text.map((d, i) => <p key={`contact${i}`}>{d}</p>)}
       </Col>
       <Col sm={6} className="columns">

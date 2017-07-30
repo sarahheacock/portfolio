@@ -32,6 +32,7 @@ const Footer = (props) => {
             <hr />
             Around the Web
           </h3>
+
           <h3>
             <a className="icon" href="#" onClick={(e) => {if(e) e.preventDefault(); window.open(links.linkedin);}}>
               <i className="fa fa-linkedin link falinked" aria-hidden="true"></i>
@@ -42,6 +43,8 @@ const Footer = (props) => {
             <a className="icon" href="#" onClick={(e) => {if(e) e.preventDefault(); window.open(links.github);}}>
               <i className="fa fa-github fa-lg link git" aria-hidden="true"></i>
             </a>
+            <br />
+            <br />
             <hr />
           </h3>
         </Col>

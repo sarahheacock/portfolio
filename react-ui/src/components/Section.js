@@ -29,7 +29,7 @@ const Section = (props) => {
   return (
     <section id={props.link}>
       <div className={cl}>
-        <PageHeader>{Title}</PageHeader>
+        <PageHeader className="pageTitle">{Title}</PageHeader>
         <div className="section-content">{content}</div>
       </div>
     </section>

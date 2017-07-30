@@ -54,7 +54,7 @@ class ContactForm extends React.Component {
     //   {messageStatus.success}
     // </Alert>;
 
-    (this.props.message.error) ?
+    const alert = (!(!this.props.message.error)) ?
       <Alert bsStyle={(this.props.message.error === messageStatus.success) ? 'info' : 'warning'}>
         {this.props.message.error}
       </Alert> :
@@ -65,7 +65,7 @@ class ContactForm extends React.Component {
         {formGroups}
         <div className="text-center">
           {alert}
-          <Button bsStyle="info" type="submit">Send  <i className="fa fa-paper-plane fa-lg" aria-hidden="true"></i></Button>
+          <button className="sendButton" type="submit">Send  <i className="fa fa-paper-plane fa-lg" aria-hidden="true"></i></button>
         </div>
       </Form>
     );

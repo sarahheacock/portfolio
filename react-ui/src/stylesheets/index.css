@@ -1,5 +1,5 @@
 header {
-  background-image: url(https://images.pexels.com/photos/34676/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-image: url(https://images.pexels.com/photos/234394/pexels-photo-234394.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
   background-size: cover;
   background-position: center top;
   height: 100vh;
@@ -9,19 +9,52 @@ header {
 
 }
 
+/*
+powder--#BFD8D2
+warm--#DF744A
+yellow--#BCB239
+peach--#FEDCD2
+*/
+
+.brand{
+  font-family: 'Pacifico';
+  color: #81b1a6;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #BCB239;
+}
+
 .headerText {
   padding-top: 20%;
-  color: White;
+  color: #DF744A;
 }
 
 body {
   margin: 0 auto;
   padding: 0;
-  font-family: serif;
+  font-family: 'Raleway', sans-serif;;
 
-  background-color: #e2e9e6;
+  background-color: #BFD8D2; /*powder*/
   position: relative;
-  color: DimGray
+  /*color: DimGray; /*warm*/
+}
+
+h3 {
+  font-family: 'Pacifico';
+  color: #565656;
+}
+
+.sendButton {
+  background-color: #DF744A;
+  border-radius: 5%;
+  padding: 2%;
+  color: white;
+  border-width: 0px;
+}
+
+.sendButton:hover{
+  background-color: #d95926;
 }
 
 .container-fluid {
@@ -35,8 +68,16 @@ body {
   margin-bottom: 3%;
 }
 
+.pageTitle {
+  color: #DF744A;
+}
+
+p {
+   color: DimGray;
+ }
+
 .main-content {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: White;
   padding: 2%;
@@ -44,7 +85,7 @@ body {
 }
 
 .section-content{
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding-left: 5%;
   padding-right: 5%;
@@ -94,7 +135,7 @@ body {
 
   padding: 1%;
   opacity: 0.0;
-  margin-top: -50px;
+  margin-top: -100px;
   text-align: center;
 
   color: White;
@@ -110,7 +151,7 @@ body {
 .access:hover{
   opacity: 0.7;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
-  zoom: 105%;
+  zoom: 100%;
 }
 
 .access:hover h3{
@@ -148,6 +189,7 @@ body {
   padding-bottom: 5%;
   max-width: 700px;
   margin: 0 auto;
+  /*color: Silver;*/
 }
 
 .foot a {
@@ -157,28 +199,29 @@ body {
 }
 
 .faheart {
-  color: #CDB7B5
+  color: #FEDCD2;
 }
 
 .facoffee {
-  color: #8B795E;
+  color: #BCB239;
 }
 
 .link {
-  border-color: DimGray;
-  border-width: 2px;
+  /*border-color: #DF744A;*/
+  color: #BCB239;
+  /*border-width: 2px;
   border-style: solid;
-  border-radius: 50%;
+  border-radius: 50%;*/
 
   width: 40px;
   margin: 2%;
   padding: 1%;
 }
 
-.link:hover{
-  /*background: White;*/
+/*.link:hover{
+  background: White;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-}
+}*/
 
 .falinked:hover {
   color: #4682B4;

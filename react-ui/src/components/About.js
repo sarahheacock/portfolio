@@ -11,7 +11,8 @@ const About = (props) => {
           <img src={props.data.image} alt="me" className="white-border" />
         </Col>
         <Col sm={7} className="columns">
-          <b>{props.data.bold}</b>
+          <h3>{props.data.bold}</h3>
+          <hr />
           <p>{props.data.text}</p>
         </Col>
       </Row>

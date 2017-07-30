@@ -84,13 +84,13 @@ class Header extends React.Component {
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >
-
+              <div><span className="brand">{"Sarah's Portfolio"}</span></div>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
 
           <Navbar.Collapse>
-            <Nav className="ml-auto" activeKey={this.props.links.lastIndexOf(this.props.current)} navbar>
+            <Nav className="ml-auto" activeKey={this.props.links.lastIndexOf(this.props.current)} navbar pullRight>
               {navItems}
             </Nav>
 
