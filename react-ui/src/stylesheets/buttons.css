@@ -1,0 +1,55 @@
+/*
+powder--#BFD8D2
+warm--#DF744A
+yellow--#BCB239
+peach--#FEDCD2
+*/
+
+.button {
+  border-radius: 5%;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 80px;
+  margin: 1%;
+  border-width: 0px;
+}
+
+.linkButton {
+  border-radius: 5%;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 200px;
+  margin: 1%;
+  border-width: 0px;
+}
+
+.orangeButton {
+  background-color: #DF744A;
+  color: white;
+}
+
+.orangeButton:hover{
+  background-color: #d95926;
+}
+
+.blueButton {
+  background-color: #81b1a6;
+  color: white;
+}
+
+.blueButton:hover {
+  background-color: #578e81;
+}
+
+.yellowButton {
+  background-color: #bcb239;
+  color: white;
+}
+
+.yellowButton:hover{
+  background-color: #9c9330;
+}

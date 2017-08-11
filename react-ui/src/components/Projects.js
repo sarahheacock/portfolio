@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectModal from './ProjectModal';
+import { Image } from 'cloudinary-react';
+import { cloudName } from '../data/data';
 
 const Projects = (props) => {
   const projects = (props.data.portfolio).map((p, i) => (
@@ -10,9 +12,20 @@ const Projects = (props) => {
         if(e) e.preventDefault();
         props.updateState({project: i});
       }}>
-        <img className="project" src={p.image} />
+        <div>
+          {(p.image.includes('http'))?
+            <img className="project" src={p.image} /> :
+            <Image
+              className="project"
+              cloudName={cloudName}
+              publicId={p.image}
+              width="350"
+              crop="scale"/>
+          }
+        </div>
         <h3>{p.title}</h3>
       </a>
+      <h4 className="text-center">{p.title2}</h4>
     </div>
   ));
 

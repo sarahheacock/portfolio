@@ -22,7 +22,7 @@ peach--#FEDCD2
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #BCB239;
+    color: #81b1a6;
 }
 
 .headerText {
@@ -43,18 +43,6 @@ body {
 h3 {
   font-family: 'Pacifico';
   color: #565656;
-}
-
-.sendButton {
-  background-color: #DF744A;
-  border-radius: 5%;
-  padding: 2%;
-  color: white;
-  border-width: 0px;
-}
-
-.sendButton:hover{
-  background-color: #d95926;
 }
 
 .container-fluid {
@@ -112,7 +100,9 @@ p {
 
 
 .project{
-  height: 200px;
+  width: 300px;
+}
+.projectPic{
   width: 250px;
 }
 
@@ -135,14 +125,14 @@ p {
 
   padding: 1%;
   opacity: 0.0;
-  margin-top: -100px;
+  margin-top: -150px;
   text-align: center;
 
   color: White;
   letter-spacing: -1px;
    /* fallback color */
   background: rgba(0,0,0,0.9);
-  width: 250px;
+  width: 300px;
 
   -webkit-transition: opacity 2s; /* Safari */
   transition: opacity 2s;

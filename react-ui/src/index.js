@@ -11,9 +11,9 @@ import AdminReducer from './reducers/admin';
 //content
 import { data, messageData } from './data/data';
 
-// import '/bootstrap/dist/css/bootstrap.css';
-// import '/bootstrap/dist/css/bootstrap-theme.css';
+
 import './stylesheets/index.css';
+import './stylesheets/buttons.css';
 //=============================================================\
 
 let sections = {};

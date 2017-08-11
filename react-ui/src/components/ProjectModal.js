@@ -1,10 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Modal, Button, Col, Row } from 'react-bootstrap';
+import { Modal, Col, Row } from 'react-bootstrap';
 import { projectURL } from '../data/data';
+import { Image } from 'cloudinary-react';
+import { cloudName } from '../data/data';
+
 
 const ProjectModal = (props) => {
+  const classList = (u) => {
+    if(u === "final") return 'linkButton blueButton';
+    if(u === "prototype") return 'linkButton orangeButton';
+    else return "linkButton";
+  };
+
   const modal = (props.data !== undefined) ?
     <Modal show={props.data !== undefined}>
       <Modal.Header>
@@ -14,7 +23,17 @@ const ProjectModal = (props) => {
       <Modal.Body className="section-content">
         <Row className="clear-fix">
           <Col sm={6} className="columns">
-            <img src={props.data.image} className="project" />
+            <div>
+              {(props.data.image.includes('http'))?
+                <img className="projectPic" src={props.data.image} /> :
+                <Image
+                  className="projectPic"
+                  cloudName={cloudName}
+                  publicId={props.data.image}
+                  width="300"
+                  crop="scale"/>
+              }
+            </div>
           </Col>
           <Col sm={6} className="columns">
             <h4>About</h4>
@@ -35,16 +54,16 @@ const ProjectModal = (props) => {
 
         {Object.keys(props.data.url).map((u, i) =>
           <div className="text-center" key={`${i}url`}>
-            <Button bsStyle={(u === "final") ? 'primary' : 'default'} className={`${u} linkButton`} onClick={(e) => {if(e) e.preventDefault(); window.open(props.data.url[u]);}}>
+            <button className={classList(u)} onClick={(e) => {if(e) e.preventDefault(); window.open(props.data.url[u]);}}>
               {projectURL[u]['text']} <i className={projectURL[u]['icon']} aria-hidden="true"></i>
-            </Button>
+            </button>
           </div>
         )}
 
       </Modal.Body>
 
       <Modal.Footer>
-        <Button bsStyle="danger" onClick={ () => props.updateState({project: -1}) }>Close</Button>
+        <button className="button" onClick={ () => props.updateState({project: -1}) }>Close</button>
       </Modal.Footer>
     </Modal> :
     <div></div>

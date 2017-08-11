@@ -65,7 +65,7 @@ class ContactForm extends React.Component {
         {formGroups}
         <div className="text-center">
           {alert}
-          <button className="sendButton" type="submit">Send  <i className="fa fa-paper-plane fa-lg" aria-hidden="true"></i></button>
+          <button className="button orangeButton" type="submit">Send  <i className="fa fa-paper-plane fa-lg" aria-hidden="true"></i></button>
         </div>
       </Form>
     );
