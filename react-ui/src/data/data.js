@@ -11,11 +11,10 @@ export const data = {
       {
         url: {
           final: "https://pattys-pet-pals.herokuapp.com",
-          prototype: "#",
+          prototype: "https://polar-coast-33051.herokuapp.com/",
           github: "https://github.com/sarahheacock/pattys-pets-pals",
         },
         title: "Patty's Pets",
-        title2: "Click to View More",
         image: "Screen_Shot_2017-08-11_at_10.10.04_AM_ohxdqd.png",
         info: {
           about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
@@ -25,34 +24,33 @@ export const data = {
       },
       {
         url: {
-          final: "#",
-          prototype: "#",
-          github: "#",
+          final: "https://pt-balance.herokuapp.com/",
+          prototype: "https://whispering-atoll-99271.herokuapp.com/",
+          github: "https://github.com/sarahheacock/pt-balance",
         },
-        title: "Nancy Darr Publications",
-        title2: "Click to View More",
-        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        title: "Pediatric Balance Scale",
+        image: "Screen_Shot_2017-08-14_at_3.16.09_PM_ejjfar",
         info: {
           about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
           front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
           back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
         }
       },
-      {
-        url: {
-          final: "#",
-          prototype: "#",
-          github: "#",
-        },
-        title: "Bed and Breakfast",
-        title2: "Coming Soon",
-        image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
-        info: {
-          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
-          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
-          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
-        }
-      }
+      // {
+      //   url: {
+      //     final: "#",
+      //     prototype: "#",
+      //     github: "#",
+      //   },
+      //   title: "Bed and Breakfast",
+      //   title2: "Coming Soon",
+      //   image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+      //   info: {
+      //     about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
+      //     front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
+      //     back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+      //   }
+      // }
     ]
   },
   contact: {

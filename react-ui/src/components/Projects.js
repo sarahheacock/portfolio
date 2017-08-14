@@ -25,17 +25,19 @@ const Projects = (props) => {
         </div>
         <h3>{p.title}</h3>
       </a>
-      <h4 className="text-center">{p.title2}</h4>
     </div>
   ));
 
   return (
-    <div className="flex-container">
-      {projects}
-      <ProjectModal
-        updateState={props.updateState}
-        data={props.data.portfolio[props.project]}
-      />
+    <div>
+      <h3 className="text-center">Click on the projects below to get a closer look.</h3><br />
+      <div className="flex-container">
+        {projects}
+        <ProjectModal
+          updateState={props.updateState}
+          data={props.data.portfolio[props.project]}
+        />
+    </div>
     </div>
   );
 }
