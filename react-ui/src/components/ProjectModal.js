@@ -23,6 +23,10 @@ const ProjectModal = (props) => {
       <Modal.Body className="section-content">
         <Row className="clear-fix">
           <Col sm={6} className="columns">
+            <h4>About</h4>
+            <p>{props.data.info.about}</p>
+          </Col>
+          <Col sm={6} className="columns">
             <div>
               {(props.data.image.includes('http'))?
                 <img className="projectPic" src={props.data.image} /> :
@@ -34,10 +38,6 @@ const ProjectModal = (props) => {
                   crop="scale"/>
               }
             </div>
-          </Col>
-          <Col sm={6} className="columns">
-            <h4>About</h4>
-            <p>{props.data.info.about}</p>
           </Col>
         </Row>
 

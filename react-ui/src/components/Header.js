@@ -84,7 +84,7 @@ class Header extends React.Component {
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >
-              <div><span className="brand"><Image className="pull-left coffee" width={30} src={coffee}/>{" Sarah's Portfolio"}</span></div>
+              <div><Image className="pull-left coffee" width={35} src={coffee}/><span className="brand">{"Sarah's Portfolio"}</span></div>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
