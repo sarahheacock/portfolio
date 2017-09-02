@@ -4,10 +4,24 @@ export const data = {
   about: {
     image: "https://res.cloudinary.com/dhd1eov8v/image/upload/v1477872000/IMG_2509_a23chj.jpg",
     bold: "Hello, I'm Sarah...",
-    text: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist. Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over. Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+    text: "I am a full stack web developer and react/redux enthusiast.  I specialize in creating dynamic web sites clients can easily edit without having to compromise performance or security.  I love spending my free time outside--hiking and rock climbing."
   },
   projects: {
     portfolio: [
+      {
+        url: {
+          final: "https://www.pediatricbalancescale.com/",
+          prototype: "https://young-ocean-23070.herokuapp.com/",
+          github: "https://github.com/sarahheacock/pt-balance",
+        },
+        title: "Pediatric Balance Scale",
+        image: "Screen_Shot_2017-08-14_at_3.16.09_PM_ejjfar",
+        info: {
+          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
+          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
+          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
+        }
+      },
       {
         url: {
           final: "https://pattys-pet-pals.herokuapp.com",
@@ -22,20 +36,7 @@ export const data = {
           back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
         }
       },
-      {
-        url: {
-          final: "https://pt-balance.herokuapp.com/",
-          prototype: "https://whispering-atoll-99271.herokuapp.com/",
-          github: "https://github.com/sarahheacock/pt-balance",
-        },
-        title: "Pediatric Balance Scale",
-        image: "Screen_Shot_2017-08-14_at_3.16.09_PM_ejjfar",
-        info: {
-          about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
-          front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
-          back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
-        }
-      },
+
       // {
       //   url: {
       //     final: "#",
@@ -55,7 +56,7 @@ export const data = {
   },
   contact: {
     bold: "Want to get in touch?",
-    text: ["Whether you have any questions about my work, or have some feedback for me--I would love to hear from you!", "I will respond A.S.A.P." ,"" ,"Note: No spam/soliciting pour moi, merci."]
+    text: ["Whether you have any questions about my work, or have some feedback for me--I would love to hear from you!", "I will respond A.S.A.P." ,"" ,"Note: No spam/soliciting, please."]
   }
 }
 

@@ -1,12 +1,11 @@
 header {
-  background-image: url(https://images.pexels.com/photos/234394/pexels-photo-234394.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-image: url(https://images.pexels.com/photos/34676/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
   background-size: cover;
   background-position: center top;
   height: 100vh;
   background-attachment: fixed;
   width: 100%;
   padding: 0px;
-
 }
 
 /*
@@ -21,13 +20,17 @@ peach--#FEDCD2
   color: #81b1a6;
 }
 
+.coffee{
+  padding-right: 2%;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #81b1a6;
 }
 
 .headerText {
   padding-top: 20%;
-  color: #DF744A;
+  color: #BFD8D2;
 }
 
 body {

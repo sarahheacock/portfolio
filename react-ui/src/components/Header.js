@@ -5,7 +5,7 @@ import { windowOffset } from '../data/data';
 import { Nav, Navbar, NavItem, Image } from 'react-bootstrap';
 
 var FaCircle = require('react-icons/lib/fa/circle-o');
-
+const coffee = require('./hot-coffee-rounded-cup-on-a-plate-from-side-view.svg');
 
 class Header extends React.Component {
   static propTypes = {
@@ -84,7 +84,7 @@ class Header extends React.Component {
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >
-              <div><span className="brand">{"Sarah's Portfolio"}</span></div>
+              <div><span className="brand"><Image className="pull-left coffee" width={30} src={coffee}/>{" Sarah's Portfolio"}</span></div>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
