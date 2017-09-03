@@ -24,7 +24,7 @@ const ProjectModal = (props) => {
         <Row className="clear-fix">
           <Col sm={6} className="columns">
             <h4>About</h4>
-            <p>{props.data.info.about}</p>
+            <p>{props.data.info}</p>
           </Col>
           <Col sm={6} className="columns">
             <div>
@@ -40,17 +40,10 @@ const ProjectModal = (props) => {
             </div>
           </Col>
         </Row>
-
         <Row>
-          <Col sm={12} className="columns">
-            <h4>Front-End</h4>
-            <p>{props.data.info.front}</p>
-          </Col>
-          <Col sm={12} className="columns">
-            <h4>Back-End</h4>
-            <p>{props.data.info.back}</p>
-          </Col>
+          <p className="text-center"><i>{props.data.disclaimer}</i></p>
         </Row>
+        <hr />
 
         {Object.keys(props.data.url).map((u, i) =>
           <div className="text-center" key={`${i}url`}>
