@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProjectModal from './ProjectModal';
-import { Image } from 'cloudinary-react';
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import { cloudName } from '../data/data';
 
 const Projects = (props) => {
@@ -13,15 +13,11 @@ const Projects = (props) => {
         props.updateState({project: i});
       }}>
         <div>
-          {(p.image.includes('http'))?
-            <img className="project" src={p.image} /> :
-            <Image
-              className="project"
-              cloudName={cloudName}
-              publicId={p.image}
-              width="350"
-              crop="scale"/>
-          }
+          <CloudinaryContext cloudName={cloudName}>
+              <Image publicId={p.image} className="project" >
+                  <Transformation width="350" crop="scale"/>
+              </Image>
+          </CloudinaryContext>
         </div>
         <h3>{p.title}</h3>
       </a>

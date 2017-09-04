@@ -2,7 +2,7 @@ export const cloudName = "dhd1eov8v";
 
 export const data = {
   about: {
-    image: "https://res.cloudinary.com/dhd1eov8v/image/upload/v1477872000/IMG_2509_a23chj.jpg",
+    image: "IMG_2509_a23chj",
     bold: "Hello, I'm Sarah...",
     text: "I am a full stack web developer and react/redux enthusiast.  I specialize in creating dynamic web sites clients can easily edit on their own without having to compromise their site's performance or security.  I love spending my free time outside--hiking and rock climbing."
   },

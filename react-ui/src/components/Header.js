@@ -2,7 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { windowOffset } from '../data/data';
-import { Nav, Navbar, NavItem, Image } from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
+import { cloudName } from '../data/data';
 
 var FaCircle = require('react-icons/lib/fa/circle-o');
 const coffee = require('./hot-coffee-rounded-cup-on-a-plate-from-side-view.svg');
@@ -19,19 +21,21 @@ class Header extends React.Component {
   }
 
   componentDidMount(){
-    window.addEventListener("load", this.props.handleResize);
-    window.addEventListener("resize", this.props.handleResize);
-    window.addEventListener('backbutton', (e) => console.log(e, "button"));
+    if(screen.width >= 980){
+      window.addEventListener("load", this.props.handleResize);
+      window.addEventListener("resize", this.props.handleResize);
 
-    window.addEventListener("scroll", this.onScroll);
+      window.addEventListener("scroll", this.onScroll);
+    }
   }
 
   componentWillUnmount(){
-    window.removeEventListener("load", this.props.handleResize);
-    window.removeEventListener("resize", this.props.handleResize);
-    window.removeEventListener("backbutton", (e) => console.log(e, "button"));
+    if(screen.width >= 980){
+      window.removeEventListener("load", this.props.handleResize);
+      window.removeEventListener("resize", this.props.handleResize);
 
-    window.removeEventListener("scroll", this.onScroll);
+      window.removeEventListener("scroll", this.onScroll);
+    }
   }
 
   onScroll = (e) => {
@@ -73,7 +77,13 @@ class Header extends React.Component {
     return (
       <div>
         <header>
-          <h1 className="text-center headerText">{("Sarah Heacock").toUpperCase()}
+          <CloudinaryContext cloudName={cloudName} >
+              <Image publicId="pexels-photo_1_swor1e" >
+                  <Transformation height="500" width="1200" crop="fill" className="carousel-content"/>
+                  <Transformation className="text-center headerText" overlay="text:Arial_100:Hello" />
+              </Image>
+          </CloudinaryContext>
+          <h1 >{("Sarah Heacock").toUpperCase()}
             <hr />
             <FaCircle />
             <br /><br />
@@ -84,7 +94,7 @@ class Header extends React.Component {
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >
-              <div><Image className="pull-left coffee" width={35} src={coffee}/><span className="brand">{"Sarah's Portfolio"}</span></div>
+              <div><img className="pull-left coffee" width={35} src={coffee}/><span className="brand">{"Sarah's Portfolio"}</span></div>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Modal, Col, Row } from 'react-bootstrap';
 import { projectURL } from '../data/data';
-import { Image } from 'cloudinary-react';
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import { cloudName } from '../data/data';
 
 
@@ -28,15 +28,11 @@ const ProjectModal = (props) => {
           </Col>
           <Col sm={6} className="columns">
             <div>
-              {(props.data.image.includes('http'))?
-                <img className="projectPic" src={props.data.image} /> :
-                <Image
-                  className="projectPic"
-                  cloudName={cloudName}
-                  publicId={props.data.image}
-                  width="300"
-                  crop="scale"/>
-              }
+              <CloudinaryContext cloudName={cloudName}>
+                  <Image publicId={props.data.image} className="projectPic" >
+                      <Transformation width="250" crop="scale"/>
+                  </Image>
+              </CloudinaryContext>
             </div>
           </Col>
         </Row>

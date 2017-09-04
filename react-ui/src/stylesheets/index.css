@@ -1,4 +1,4 @@
-header {
+/*header {
   background-image: url(https://images.pexels.com/photos/34676/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
   background-size: cover;
   background-position: center top;
@@ -6,8 +6,24 @@ header {
   background-attachment: fixed;
   width: 100%;
   padding: 0px;
+}*/
+
+header{
+  /*background-color: #07889B;*/
+  top: 0;
+  background-position: center;
+  position: sticky;
+  /*margin: 0 auto;*/
+  /*margin-bottom: 3%;*/
+  z-index: -1;
 }
 
+.carousel-content {
+  width: 100%;
+  margin: 0 auto;
+  /*max-width: 1200px;
+  margin: 0 auto;*/
+}
 /*
 powder--#BFD8D2
 warm--#DF744A
@@ -30,8 +46,18 @@ peach--#FEDCD2
 }
 
 .headerText {
-  padding-top: 20%;
-  color: #BFD8D2;
+  /*padding-top: 20%;
+  color: #BFD8D2;*/
+  position: absolute;
+
+  padding: 1%;
+  opacity: 0.0;
+  margin-top: -150px;
+  text-align: center;
+
+  color: White;
+  letter-spacing: -1px;
+  z-index: 1;
 }
 
 body {
@@ -93,7 +119,7 @@ p {
   border-style: solid;
   border-radius: 50%;
   width: 80%;
-  max-width: 200px;
+  /*max-width: 200px;*/
 }
 
 .columns {
@@ -104,10 +130,10 @@ p {
 
 
 .project{
-  width: 300px;
+  /*width: 300px;*/
 }
 .projectPic{
-  width: 250px;
+  /*width: 250px;*/
   padding-top: 10%;
 }
 

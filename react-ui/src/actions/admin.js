@@ -55,7 +55,7 @@ export const sayHello = (message) => {
 export const handleClick = (newState) => {
   return(dispatch) => {
     //transitions to correct position
-    const max = Math.floor(newState.range/20);
+    const max = Math.floor(newState.range/15);
     console.log("max", max);
 
     const stop = newState.stop;
