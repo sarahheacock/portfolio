@@ -31,11 +31,12 @@ class Header extends React.Component {
 
   componentDidUpdate(){
     $(window).on('resize', this.onResize);
+    $(window).on('scroll', this.onScroll);
   }
 
-  componentWillUnmount(){
-    window.removeEventListener("scroll", this.onScroll);
-  }
+  // componentWillUnmount(){
+  //   window.removeEventListener("scroll", this.onScroll);
+  // }
 
   onResize = (e) => {
     // if(e) e.preventDefault();
@@ -52,7 +53,8 @@ class Header extends React.Component {
 
   scroll = (e) => {
     // if(e) e.preventDefault();
-    window.removeEventListener("scroll", this.onScroll);
+    // window.removeEventListener("scroll", this.onScroll);
+    $(window).off('scroll', this.onScroll);
 
     const stop = this.props.sections[e.target.name]["min"];
     const start = windowOffset();
@@ -66,10 +68,11 @@ class Header extends React.Component {
   }
 
   render(){
-    window.addEventListener("scroll", this.onScroll);
+    // window.addEventListener("scroll", this.onScroll);
 
     const navItems = this.props.links.map((link, i) => (
       <NavItem
+        className="navButton"
         key={link}
         name={link}
         eventKey={i}
