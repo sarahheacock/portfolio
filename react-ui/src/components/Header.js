@@ -21,25 +21,17 @@ class Header extends React.Component {
   }
 
   componentWillMount(){
-    window.addEventListener("resize", this.props.handleResize);
-    window.addEventListener("scroll", this.onScroll);
-  }
-
-  componentDidMount(){
-    this.props.handleResize();
-    // if(screen.width >= 980){
-    // window.addEventListener("load", this.props.handleResize);
-      // this.props.handleResize();
-    // }
+    window.addEventListener("resize", this.onResize);
   }
 
   componentWillUnmount(){
-    // if(screen.width >= 980){
-      // window.removeEventListener("load", this.props.handleResize);
-      window.removeEventListener("resize", this.props.handleResize);
-      window.removeEventListener("scroll", this.onScroll);
-      // this.props.handleResize();
-    // }
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
+  onResize = (e) => {
+    if(e) e.preventDefault();
+    this.props.handleResize();
   }
 
   onScroll = (e) => {
@@ -53,10 +45,9 @@ class Header extends React.Component {
   scroll = (e) => {
     if(e) e.preventDefault();
     window.removeEventListener("scroll", this.onScroll);
+
     const stop = this.props.sections[e.target.name]["min"];
     const start = windowOffset();
-    console.log(start);
-    console.log(stop);
 
     this.props.handleClick({
       "stop": stop,
@@ -79,7 +70,6 @@ class Header extends React.Component {
         {`${link.toUpperCase()}`}
       </NavItem>
     ))
-
 
 
     return (

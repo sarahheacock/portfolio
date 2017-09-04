@@ -24,6 +24,7 @@ class App extends Component {
     sections: PropTypes.object.isRequired
   }
 
+
   render(){
     const{ dispatch, message, current, last, sections, project } = this.props;
     const handleClick = bindActionCreators(AdminActionCreators.handleClick, dispatch);
@@ -48,6 +49,7 @@ class App extends Component {
         project={project}
         data={data[k]}
         message={message}
+        handleResize={handleResize}
         updateState={updateState}
         sayHello={sayHello}
       />
@@ -71,7 +73,6 @@ class App extends Component {
         </div>
 
         <Footer
-
         />
 
       </div>
