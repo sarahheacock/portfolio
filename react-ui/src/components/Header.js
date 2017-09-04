@@ -5,6 +5,7 @@ import { windowOffset } from '../data/data';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import { cloudName } from '../data/data';
+import $ from 'jquery';
 
 var FaCircle = require('react-icons/lib/fa/circle-o');
 const coffee = require('./hot-coffee-rounded-cup-on-a-plate-from-side-view.svg');
@@ -22,6 +23,10 @@ class Header extends React.Component {
 
   componentWillMount(){
     window.addEventListener("resize", this.onResize);
+  }
+
+  componentDidMount(){
+    $(window).on('load', this.onResize);
   }
 
   componentWillUnmount(){
