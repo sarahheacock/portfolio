@@ -97,7 +97,8 @@ export default function Admin(state={}, action){
           // if(currentOffset < newMax){
             current = k;
             if(window.location.hash !== k){
-              window.location.hash = k;
+              history.pushState(null, null, `#${k}`);
+              // window.location.hash = k;
               // window.stop();
             }
           // }
