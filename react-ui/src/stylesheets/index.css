@@ -164,7 +164,8 @@ p {
   /*width: 300px;*/
 }
 .projectPic{
-  max-width: 80%;
+  width: 80%;
+  max-width: 250px;
   padding-top: 10%;
 }
 

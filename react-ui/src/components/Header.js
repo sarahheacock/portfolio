@@ -21,21 +21,24 @@ class Header extends React.Component {
     handleClick: PropTypes.func.isRequired,
   }
 
-  componentWillMount(){
-    window.addEventListener("resize", this.onResize);
-  }
+  // componentWillMount(){
+  //   window.addEventListener("resize", this.onResize);
+  // }
 
   componentDidMount(){
     $(window).on('load', this.onResize);
   }
 
+  componentDidUpdate(){
+    $(window).on('resize', this.onResize);
+  }
+
   componentWillUnmount(){
-    window.removeEventListener("resize", this.onResize);
     window.removeEventListener("scroll", this.onScroll);
   }
 
   onResize = (e) => {
-    if(e) e.preventDefault();
+    // if(e) e.preventDefault();
     this.props.handleResize();
   }
 
@@ -48,7 +51,7 @@ class Header extends React.Component {
 
 
   scroll = (e) => {
-    if(e) e.preventDefault();
+    // if(e) e.preventDefault();
     window.removeEventListener("scroll", this.onScroll);
 
     const stop = this.props.sections[e.target.name]["min"];
