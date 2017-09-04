@@ -20,18 +20,22 @@ class Header extends React.Component {
     handleClick: PropTypes.func.isRequired,
   }
 
+  componentWillMount(){
+    window.addEventListener("resize", this.props.handleResize);
+    window.addEventListener("scroll", this.onScroll);
+  }
+
   componentDidMount(){
+    this.props.handleResize();
     // if(screen.width >= 980){
-      window.addEventListener("resize", this.props.handleResize);
-      window.addEventListener("scroll", this.onScroll);
-      window.addEventListener("load", this.props.handleResize);
+    // window.addEventListener("load", this.props.handleResize);
       // this.props.handleResize();
     // }
   }
 
   componentWillUnmount(){
     // if(screen.width >= 980){
-      window.removeEventListener("load", this.props.handleResize);
+      // window.removeEventListener("load", this.props.handleResize);
       window.removeEventListener("resize", this.props.handleResize);
       window.removeEventListener("scroll", this.onScroll);
       // this.props.handleResize();
