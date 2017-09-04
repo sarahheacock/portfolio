@@ -91,14 +91,16 @@ export default function Admin(state={}, action){
         const min = state.sections[k]["min"];
 
         if(currentOffset >= min && currentOffset <= max){
-          const jump = Math.abs(state.last - currentOffset); //jump depends on speed of scrolling
-          const newMax = min + jump;
-
-          if(currentOffset < newMax){
+          // const jump = Math.abs(state.last - currentOffset); //jump depends on speed of scrolling
+          // const newMax = min + jump;
+          //
+          // if(currentOffset < newMax){
             current = k;
-            window.location.hash = k;
-            window.stop();
-          }
+            if(window.location.hash !== k){
+              window.location.hash = k;
+              window.stop();
+            }
+          // }
         }
       });
 

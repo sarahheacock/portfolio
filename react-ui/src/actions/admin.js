@@ -55,7 +55,7 @@ export const sayHello = (message) => {
 export const handleClick = (newState) => {
   return(dispatch) => {
     //transitions to correct position
-    if(screen.width <= 980) window.location.hash = newState.current;
+    // if(screen.width <= 980) window.location.hash = newState.current;
     const max = Math.floor(newState.range/15);
     console.log("max", max);
 
@@ -88,6 +88,8 @@ export const handleClick = (newState) => {
       else document.body.scrollTop -= change;
     }
     else if(start === stop){
+      // window.location.hash = newState.current;
+      // document.body.scrolltop = stop;
       return dispatch(handleScroll());
     }
 

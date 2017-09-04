@@ -48,6 +48,7 @@ class Header extends React.Component {
 
   scroll = (e) => {
     if(e) e.preventDefault();
+    window.removeEventListener("scroll", this.onScroll);
     const stop = this.props.sections[e.target.name]["min"];
     const start = windowOffset();
     console.log(start);
@@ -58,9 +59,11 @@ class Header extends React.Component {
       "range": Math.abs( Math.ceil((stop - start) / 2) ),
       "current": e.target.name
     });
+    // window.addEventListener("scroll", this.onScroll);
   }
 
   render(){
+    window.addEventListener("scroll", this.onScroll);
 
     const navItems = this.props.links.map((link, i) => (
       <NavItem
