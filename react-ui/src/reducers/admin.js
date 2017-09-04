@@ -98,7 +98,7 @@ export default function Admin(state={}, action){
             current = k;
             if(window.location.hash !== k){
               window.location.hash = k;
-              window.stop();
+              // window.stop();
             }
           // }
         }
