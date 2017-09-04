@@ -36,9 +36,10 @@ export default function Admin(state={}, action){
 
           if(currentOffset >= sections[k]["min"] && currentOffset < sections[k]["max"]){
             current = k;
-            if(!window.location.hash.includes(current)){
-              window.location.hash = k;
-              window.stop();
+            if(window.location.hash !== k){
+              history.pushState(null, null, `#${k}`);
+              // window.location.hash = k;
+              // window.stop();
             }
           }
         }

@@ -22,19 +22,19 @@ class Header extends React.Component {
 
   componentDidMount(){
     // if(screen.width >= 980){
-      window.addEventListener("load", this.props.handleResize);
       window.addEventListener("resize", this.props.handleResize);
-
       window.addEventListener("scroll", this.onScroll);
+      // window.addEventListener("load", this.props.handleResize);
+      this.props.handleResize();
     // }
   }
 
   componentWillUnmount(){
     // if(screen.width >= 980){
-      window.removeEventListener("load", this.props.handleResize);
+      // window.removeEventListener("load", this.props.handleResize);
       window.removeEventListener("resize", this.props.handleResize);
-
       window.removeEventListener("scroll", this.onScroll);
+      // this.props.handleResize();
     // }
   }
 
