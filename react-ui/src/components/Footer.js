@@ -11,6 +11,7 @@ var FaGit = require('react-icons/lib/fa/github');
 
 const Footer = (props) => {
   return (
+    <footer>
     <div className="foot">
       <Row className="clear-fix text-center">
         <Col sm={6} className="">
@@ -51,6 +52,7 @@ const Footer = (props) => {
       </Row>
       <div className="text-center">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </div>
+    </footer>
   );
 }
 

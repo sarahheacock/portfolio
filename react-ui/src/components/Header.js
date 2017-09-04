@@ -74,22 +74,24 @@ class Header extends React.Component {
       </NavItem>
     ))
 
+
+
     return (
       <div>
         <header>
-          <CloudinaryContext cloudName={cloudName} >
-              <Image publicId="pexels-photo_1_swor1e" >
-                  <Transformation height="500" width="1200" crop="fill" className="carousel-content"/>
-                  <Transformation className="text-center headerText" overlay="text:Arial_100:Hello" />
+          <CloudinaryContext cloudName={cloudName} className="carousel-content">
+              <Image publicId="pexels-photo_1_swor1e" className="carImg">
+                  <Transformation height="1000" width="2000" crop="fill"/>
               </Image>
           </CloudinaryContext>
-          <h1 >{("Sarah Heacock").toUpperCase()}
-            <hr />
-            <FaCircle />
-            <br /><br />
-            Web Developer
-          </h1>
         </header>
+        <h1 className="headerText">{("Sarah Heacock").toUpperCase()}
+          <hr />
+          <FaCircle />
+          <br /><br />
+          Full Stack Web Developer
+        </h1>
+
 
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>

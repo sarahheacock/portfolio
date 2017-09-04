@@ -10,11 +10,13 @@ const About = (props) => {
     <div>
       <Row className="clear-fix">
         <Col sm={5} className="columns">
-          <CloudinaryContext cloudName={cloudName}>
-              <Image publicId={props.data.image} className="white-border" >
-                  <Transformation width="200" crop="scale"/>
-              </Image>
-          </CloudinaryContext>
+          <div className="text-center">
+            <CloudinaryContext cloudName={cloudName}>
+                <Image publicId={props.data.image} className="white-border" >
+                    <Transformation width="200" crop="scale"/>
+                </Image>
+            </CloudinaryContext>
+          </div>
         </Col>
         <Col sm={7} className="columns">
           <h3>{props.data.bold}</h3>

@@ -8,21 +8,38 @@
   padding: 0px;
 }*/
 
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;;
+
+  background-color: #BFD8D2; /*powder*/
+  position: relative;
+  /*color: DimGray; /*warm*/
+}
+
 header{
   /*background-color: #07889B;*/
   top: 0;
   background-position: center;
-  position: sticky;
+  position: fixed;
   /*margin: 0 auto;*/
   /*margin-bottom: 3%;*/
   z-index: -1;
 }
 
+
+
 .carousel-content {
-  width: 100%;
+  /*max-width: 1200px;*/
   margin: 0 auto;
   /*max-width: 1200px;
   margin: 0 auto;*/
+}
+
+.carImg {
+  width: 100%;
+  margin: 0 auto;
 }
 /*
 powder--#BFD8D2
@@ -48,27 +65,31 @@ peach--#FEDCD2
 .headerText {
   /*padding-top: 20%;
   color: #BFD8D2;*/
-  position: absolute;
+  position: relative;
+  /*padding: 0;
+  margin: 0;*/
+  margin-top: 12%;
+  padding-bottom: 0px;
+  margin-bottom: 5%;
 
-  padding: 1%;
-  opacity: 0.0;
-  margin-top: -150px;
+
+  /*margin-top: -150px;*/
   text-align: center;
 
   color: White;
-  letter-spacing: -1px;
+
   z-index: 1;
 }
 
-body {
-  margin: 0 auto;
-  padding: 0;
-  font-family: 'Raleway', sans-serif;;
-
-  background-color: #BFD8D2; /*powder*/
-  position: relative;
-  /*color: DimGray; /*warm*/
+@media (max-width: 1000px) {
+  header {
+    display: none;
+  }
+  .headerText {
+    display: none;
+  }
 }
+
 
 h3 {
   font-family: 'Pacifico';
@@ -81,9 +102,11 @@ h3 {
 }
 
 .content {
-  border-radius: 10%;
-  margin-top: 8%;
-  margin-bottom: 3%;
+  /*margin-top: 5%;*/
+  padding-bottom: 2%;
+  padding-top: 5%;
+  background-color: #BFD8D2; /*powder*/
+  width: 100%;
 }
 
 .pageTitle {
@@ -100,6 +123,7 @@ p {
   background-color: White;
   padding: 2%;
   padding-top: 1%;
+  overflow-x: hidden;
 }
 
 .section-content{
@@ -118,9 +142,16 @@ p {
   border-width: 10px;
   border-style: solid;
   border-radius: 50%;
-  width: 80%;
-  /*max-width: 200px;*/
+  margin: 0 auto;
+  /*width: 80%;*/
+  max-width: 70%;
 }
+
+/*@media (max-width: 800px) {
+  .white-border {
+    width: 50%;
+  }
+}*/
 
 .columns {
   max-width: 500px;
@@ -205,9 +236,17 @@ p {
 .final {
 
 }*/
+footer{
+  margin-top: 0;
+  width: 100%;
+  background-color: #BFD8D2;
+  margin-bottom: 0;
+  padding-bottom: 1%;
+}
 
 .foot {
-  padding-bottom: 5%;
+  /*padding-bottom: 5%;*/
+  background-color: #BFD8D2;
   max-width: 700px;
   margin: 0 auto;
   /*color: Silver;*/
