@@ -21,21 +21,21 @@ class Header extends React.Component {
   }
 
   componentDidMount(){
-    if(screen.width >= 980){
+    // if(screen.width >= 980){
       window.addEventListener("load", this.props.handleResize);
       window.addEventListener("resize", this.props.handleResize);
 
       window.addEventListener("scroll", this.onScroll);
-    }
+    // }
   }
 
   componentWillUnmount(){
-    if(screen.width >= 980){
+    // if(screen.width >= 980){
       window.removeEventListener("load", this.props.handleResize);
       window.removeEventListener("resize", this.props.handleResize);
 
       window.removeEventListener("scroll", this.onScroll);
-    }
+    // }
   }
 
   onScroll = (e) => {
@@ -48,7 +48,6 @@ class Header extends React.Component {
 
   scroll = (e) => {
     if(e) e.preventDefault();
-
     const stop = this.props.sections[e.target.name]["min"];
     const start = windowOffset();
     console.log(start);

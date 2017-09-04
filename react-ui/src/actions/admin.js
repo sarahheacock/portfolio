@@ -55,8 +55,8 @@ export const sayHello = (message) => {
 export const handleClick = (newState) => {
   return(dispatch) => {
     //transitions to correct position
-    const height = Math.floor(screen.height / 50);
-    const max = (height) ? Math.floor(newState.range / height) : Math.floor(newState.range / height);
+    if(screen.width <= 980) window.location.hash = newState.current;
+    const max = Math.floor(newState.range/15);
     console.log("max", max);
 
     const stop = newState.stop;
@@ -68,6 +68,7 @@ export const handleClick = (newState) => {
     const y = Math.ceil(a * pow) + max;
     const change = (y <= 0) ? 1 : y;
     const time = 0.0001;
+
 
     // console.log("range", newState.range);
     // console.log("x", x);
