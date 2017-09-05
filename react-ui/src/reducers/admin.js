@@ -1,8 +1,8 @@
-
+import $ from 'jquery';
 import * as AdminActionTypes from '../actiontypes/admin';
 
 //content
-import { data, buffer, windowOffset, windowInnerHeight, scrollHeight, contentHeight} from '../data/data';
+import { data, buffer, windowInnerHeight, scrollHeight, contentHeight} from '../data/data';
 const dataKeys = Object.keys(data);
 
 //==============================================================
@@ -22,7 +22,7 @@ export default function Admin(state={}, action){
       let current = state.current;
       const length = dataKeys.length;
 
-      const currentOffset = windowOffset();
+      const currentOffset = $(window).scrollTop();
       dataKeys.forEach((k, i) => {
 
         const element = document.getElementById(k);
@@ -86,25 +86,26 @@ export default function Admin(state={}, action){
     case AdminActionTypes.HANDLE_SCROLL: {
       let current = state.current;
 
-      const currentOffset = windowOffset();
-      dataKeys.forEach((k, i) => {
-        const max = state.sections[k]["max"];
-        const min = state.sections[k]["min"];
-
-        if(currentOffset >= min && currentOffset <= max){
-          // const jump = Math.abs(state.last - currentOffset); //jump depends on speed of scrolling
-          // const newMax = min + jump;
-          //
-          // if(currentOffset < newMax){
-            current = k;
-            if(window.location.hash !== k){
-              history.pushState(null, null, `#${k}`);
-              // window.location.hash = k;
-              // window.stop();
-            }
-          // }
-        }
+      const currentOffset = $(window).scrollTop();
+      dataKeys.forEach((k) => {
+        console.log($(`#${k}`).offset().top);
+        if($(`#${k}`).offset().top <= 0) current = k;
       });
+
+      if(window.location.hash !== current){
+        history.pushState(null, null, `#${current}`);
+      }
+      // dataKeys.forEach((k, i) => {
+      //   const max = state.sections[k]["max"];
+      //   const min = state.sections[k]["min"];
+      //
+      //   if(currentOffset >= min && currentOffset <= max){
+      //     current = k;
+      //     if(window.location.hash !== k){
+      //       history.pushState(null, null, `#${k}`);
+      //     }
+      //   }
+      // });
 
       return {...state, last: currentOffset, current};
     }

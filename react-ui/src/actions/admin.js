@@ -1,7 +1,8 @@
 import * as AdminActionTypes from '../actiontypes/admin';
 import axios from 'axios';
+import $ from 'jquery';
 
-import { windowOffset, messageData, messageStatus } from '../data/data';
+import { messageData, messageStatus } from '../data/data';
 
 //=======================================================
 export const updateState = (newState) => {
@@ -56,47 +57,43 @@ export const handleClick = (newState) => {
   return(dispatch) => {
     //transitions to correct position
     // if(screen.width <= 980) window.location.hash = newState.current;
-    const max = Math.floor(newState.range/15);
-    console.log("max", max);
-
-    const stop = newState.stop;
-    const start = windowOffset();
-    const x = Math.abs(stop - start);
-
-    const a = max * -1 / Math.pow(newState.range, 2);
-    const pow = Math.pow((x - newState.range), 2);
-    const y = Math.ceil(a * pow) + max;
-    const change = (y <= 0) ? 1 : y;
-    const time = 0.0001;
-
-
-    // console.log("range", newState.range);
-    // console.log("x", x);
-    // console.log("a", a);
-    // console.log("pow", pow);
+    // const max = Math.floor(newState.range/15);
+    // console.log("max", max);
     //
-    // console.log("height", height);
-    // console.log("start", start);
-    // console.log("change", change);
-
-    if(stop > start) {
-      if(stop - start < change) document.body.scrolltop = stop;
-      else document.body.scrollTop += change;
-    }
-    else if(stop < start) {
-      if(start - stop < change) document.body.scrolltop = stop;
-      else document.body.scrollTop -= change;
-    }
-    else if(start === stop){
-      // window.location.hash = newState.current;
-      // document.body.scrolltop = stop;
-      return dispatch(handleScroll());
-    }
-
-
-    return window.setTimeout(function(){
-      return dispatch(handleClick(newState));
-    }, time);
+    // const stop = newState.stop;
+    // const start = $(window).scrollTop();
+    // const x = Math.abs(stop - start);
+    //
+    // const a = max * -1 / Math.pow(newState.range, 2);
+    // const pow = Math.pow((x - newState.range), 2);
+    // const y = Math.ceil(a * pow) + max;
+    // const change = (y <= 0) ? 1 : y;
+    // const time = 0.0001;
+    //
+    // if(stop > start) {
+    //   if(stop - start < change) document.body.scrolltop = stop;
+    //   else document.body.scrollTop += change;
+    // }
+    // else if(stop < start) {
+    //   if(start - stop < change) document.body.scrolltop = stop;
+    //   else document.body.scrollTop -= change;
+    // }
+    // else if(start === stop){
+    //   // window.location.hash = newState.current;
+    //   // document.body.scrolltop = stop;
+    //   return dispatch(handleScroll());
+    // }
+    //
+    //
+    // return window.setTimeout(function(){
+    //   return dispatch(handleClick(newState));
+    // }, time);
+    $('html, body').animate({
+        scrollTop: $(`#${newState.current}`).offset().top
+    }, 2000, function(){
+      console.log('done');
+      return handleClick(newState);
+    });
 
   }
 }

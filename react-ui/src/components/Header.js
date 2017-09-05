@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { windowOffset } from '../data/data';
+// import { windowOffset } from '../data/data';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import { cloudName } from '../data/data';
@@ -25,12 +25,14 @@ class Header extends React.Component {
   //   window.addEventListener("resize", this.onResize);
   // }
 
-  componentDidMount(){
-    $(window).on('load', this.onResize);
-  }
+  // componentDidMount(){
+  //   $('body').scrollspy({target: ".navigation"})
+  //   // $(window).on('load', this.onResize);
+  // }
 
   componentDidUpdate(){
-    $(window).on('resize', this.onResize);
+    // $(window).on('resize', this.onResize);
+    // $('body').scrollspy({target: ".navigation"});
     $(window).on('scroll', this.onScroll);
   }
 
@@ -44,7 +46,7 @@ class Header extends React.Component {
   }
 
   onScroll = (e) => {
-    const currentOffset = windowOffset();
+    const currentOffset = $(window).scrollTop();
     const diff = Math.abs(currentOffset - this.props.last);
 
     if(diff > 15) this.props.handleScroll(); //'if' is just to reduce function calls
@@ -55,15 +57,28 @@ class Header extends React.Component {
     // if(e) e.preventDefault();
     // window.removeEventListener("scroll", this.onScroll);
     $(window).off('scroll', this.onScroll);
+    const hash = e.target.name;
 
-    const stop = this.props.sections[e.target.name]["min"];
-    const start = windowOffset();
-
-    this.props.handleClick({
-      "stop": stop,
-      "range": Math.abs( Math.ceil((stop - start) / 2) ),
-      "current": e.target.name
+    $('html, body').animate({
+        scrollTop: $(`#${hash}`).offset().top
+    }, 1000, () => {
+      console.log('done');
+      // if(window.location.hash !== hash){
+      //   history.pushState(null, null, `#${hash}`);
+      //   // window.location.hash = k;
+      //   // window.stop();
+      // }
+      return this.props.handleScroll();
     });
+
+    // const stop = this.props.sections[e.target.name]["min"];
+    // const start = $(window).scrollTop();
+    //
+    // this.props.handleClick({
+    //   "stop": stop,
+    //   "range": Math.abs( Math.ceil((stop - start) / 2) ),
+    //   "current": e.target.name
+    // });
     // window.addEventListener("scroll", this.onScroll);
   }
 
