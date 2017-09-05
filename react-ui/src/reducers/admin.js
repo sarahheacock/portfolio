@@ -2,7 +2,7 @@ import $ from 'jquery';
 import * as AdminActionTypes from '../actiontypes/admin';
 
 //content
-import { data, buffer, windowInnerHeight, scrollHeight, contentHeight} from '../data/data';
+import { data } from '../data/data';
 const dataKeys = Object.keys(data);
 
 //==============================================================
@@ -17,100 +17,18 @@ export default function Admin(state={}, action){
       };
     }
 
-    case AdminActionTypes.HANDLE_RESIZE: {
-      let sections = {};
-      let current = state.current;
-      const length = dataKeys.length;
-
-      const currentOffset = $(window).scrollTop();
-      dataKeys.forEach((k, i) => {
-
-        const element = document.getElementById(k);
-        if(element){
-          const diff = Math.floor(element.scrollHeight || element.clientHeight); // height of section
-
-          sections[k] = {
-            min: Math.floor(element.offsetTop),
-            max: Math.floor(element.offsetTop) + diff - 1
-          };
-
-          if(currentOffset >= sections[k]["min"] && currentOffset < sections[k]["max"]){
-            current = k;
-            if(window.location.hash !== k){
-              history.pushState(null, null, `#${k}`);
-              // window.location.hash = k;
-              // window.stop();
-            }
-          }
-        }
-      });
-
-      const first = dataKeys[0];
-      const last = dataKeys[length - 1];
-      const pen = dataKeys[length - 2];
-
-      if(sections[last]){
-        const scrollH = scrollHeight();
-        const contentH = contentHeight();
-        const windowHeight = windowInnerHeight();
-
-        const margin = scrollH - contentH - sections[first]["min"];
-        const lastHeight = sections[last]["max"] - sections[last]["min"] + 1;
-        //
-        // console.log("windowHeight", windowHeight);
-        // console.log("margin", margin);
-        // console.log("scrollH", scrollH);
-        // console.log("conentH", contentH);
-        // console.log("lastHeight", lastHeight);
-
-        if(lastHeight < windowHeight - margin && length > 1){
-          sections[pen]["max"] = scrollH - windowHeight - 1;
-          sections[last]["min"] = scrollH - windowHeight;
-        }
-
-        if(currentOffset < sections[first]["min"]){
-          current = first;
-          window.location.hash = first;
-          window.stop();
-        }
-        else if(currentOffset > sections[last]["max"]){
-          current = last;
-          window.location.hash = last;
-          window.stop();
-        }
-      }
-
-      return {...state, last: currentOffset, current, sections};
-    }
-
     case AdminActionTypes.HANDLE_SCROLL: {
-      let current = state.current;
 
       const currentOffset = $(window).scrollTop();
-      dataKeys.forEach((k) => {
-        console.log($(`#${k}`).offset().top);
-        if($(`#${k}`).offset().top <= 0) current = k;
-      });
+      const newCurrent = dataKeys.filter((k) => {
+        if(currentOffset >= Math.floor($(`#${k}`).offset().top)) return k;
+      }, 0);
 
-      if(window.location.hash !== current){
-        history.pushState(null, null, `#${current}`);
-      }
-      // dataKeys.forEach((k, i) => {
-      //   const max = state.sections[k]["max"];
-      //   const min = state.sections[k]["min"];
-      //
-      //   if(currentOffset >= min && currentOffset <= max){
-      //     current = k;
-      //     if(window.location.hash !== k){
-      //       history.pushState(null, null, `#${k}`);
-      //     }
-      //   }
-      // });
+      const current = (newCurrent.length < 1) ? 'about' : newCurrent[newCurrent.length - 1];
+      if(window.location.hash !== current) history.pushState(null, null, `#${current}`);
 
       return {...state, last: currentOffset, current};
     }
-
-
 
     default:
       return state;

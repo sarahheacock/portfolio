@@ -20,16 +20,13 @@ class App extends Component {
     project: PropTypes.number.isRequired,
     message: PropTypes.object.isRequired,
     current: PropTypes.string.isRequired,
-    last: PropTypes.number.isRequired,
-    sections: PropTypes.object.isRequired
+    last: PropTypes.number.isRequired
   }
 
 
   render(){
-    const{ dispatch, message, current, last, sections, project } = this.props;
-    const handleClick = bindActionCreators(AdminActionCreators.handleClick, dispatch);
+    const{ dispatch, message, current, last, project } = this.props;
     const handleScroll = bindActionCreators(AdminActionCreators.handleScroll, dispatch);
-    const handleResize = bindActionCreators(AdminActionCreators.handleResize, dispatch);
     const updateState = bindActionCreators(AdminActionCreators.updateState, dispatch);
     const sayHello = bindActionCreators(AdminActionCreators.sayHello, dispatch);
     //const getData = bindActionCreators(AdminActionCreators.getData, dispatch);
@@ -39,7 +36,6 @@ class App extends Component {
     console.log("message", message);
     console.log("current", current);
     console.log("last", last);
-    console.log("sections", JSON.stringify(sections, undefined, 2));
 
 
     const sect = Object.keys(data).map((k) => (
@@ -49,7 +45,6 @@ class App extends Component {
         project={project}
         data={data[k]}
         message={message}
-        handleResize={handleResize}
         updateState={updateState}
         sayHello={sayHello}
       />
@@ -62,9 +57,6 @@ class App extends Component {
           links={Object.keys(data)}
           current={current}
           handleScroll={handleScroll}
-          handleClick={handleClick}
-          sections={sections}
-          handleResize={handleResize}
           last={last}
         />
 
@@ -85,8 +77,7 @@ const mapStateToProps = state => (
     project: state.project,
     message: state.message,
     current: state.current,
-    last: state.last,
-    sections: state.sections
+    last: state.last
   }
 );
 

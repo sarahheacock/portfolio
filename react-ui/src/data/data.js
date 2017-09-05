@@ -109,18 +109,18 @@ export const links = {
 };
 
 //these are functions so that they return updated dimensions when called
-export const windowOffset = () => Math.floor(window.pageYOffset ||
-  document.documentElement.scrollTop ||
-  document.body.scrollTop); //scrolled vertically from upper left
-
-export const windowInnerHeight = () => Math.floor(window.innerHeight ||
-  document.documentElement.clientHeight ||
-  document.body.clientHeight); //height of window content
-
-export const scrollHeight = () => Math.floor(document.body.scrollHeight ||
-  document.body.clientHeight); //entire height (not including scrollbar)
-
-export const contentHeight = () => {
-  const main = document.getElementById('main');
-  return (main) ? Math.floor(main["scrollHeight"] || main["clientHeight"]) : 0;
-};
+// export const windowOffset = () => Math.floor(window.pageYOffset ||
+//   document.documentElement.scrollTop ||
+//   document.body.scrollTop); //scrolled vertically from upper left
+//
+// export const windowInnerHeight = () => Math.floor(window.innerHeight ||
+//   document.documentElement.clientHeight ||
+//   document.body.clientHeight); //height of window content
+//
+// export const scrollHeight = () => Math.floor(document.body.scrollHeight ||
+//   document.body.clientHeight); //entire height (not including scrollbar)
+//
+// export const contentHeight = () => {
+//   const main = document.getElementById('main');
+//   return (main) ? Math.floor(main["scrollHeight"] || main["clientHeight"]) : 0;
+// };

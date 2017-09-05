@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, FormGroup, ControlLabel, FormControl, Button, Alert } from 'react-bootstrap';
-var FaCircle = require('react-icons/lib/fa/circle-o');
+import { Form, FormGroup, ControlLabel, FormControl, Alert } from 'react-bootstrap';
 
 //content
 import { messageData, messageStatus } from '../data/data';
@@ -28,9 +27,12 @@ class ContactForm extends React.Component {
   }
 
   render(){
+    // const messageKeys = Object.keys(messageData);
+    // messageKeys.splice(messageKeys.indexOf('error'), 1);
+    // console.log(messageKeys);
 
-    const formGroups = Object.keys(messageData).map(k => {
-      if(k !== "error"){
+    const formGroups = ["name", "email", "phone", "message"].map(k => {
+      // if(k !== "error"){
         return(
           <FormGroup
             key={k}
@@ -47,7 +49,7 @@ class ContactForm extends React.Component {
             />
           </FormGroup>
         );
-      }
+      // }
     });
 
     // const alert = <Alert bsStyle={(this.props.message.error === messageStatus.success) ? 'info' : 'warning'}>

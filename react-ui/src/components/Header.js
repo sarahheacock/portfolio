@@ -7,7 +7,7 @@ import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import { cloudName } from '../data/data';
 import $ from 'jquery';
 
-var FaCircle = require('react-icons/lib/fa/circle-o');
+const FaCircle = require('react-icons/lib/fa/circle-o');
 const coffee = require('./hot-coffee-rounded-cup-on-a-plate-from-side-view.svg');
 
 class Header extends React.Component {
@@ -15,35 +15,17 @@ class Header extends React.Component {
     links: PropTypes.array.isRequired,
     current: PropTypes.string.isRequired,
     last: PropTypes.number.isRequired,
-    sections: PropTypes.object.isRequired,
     handleScroll: PropTypes.func.isRequired,
-    handleResize: PropTypes.func.isRequired,
-    handleClick: PropTypes.func.isRequired,
   }
 
-  // componentWillMount(){
-  //   window.addEventListener("resize", this.onResize);
-  // }
-
-  // componentDidMount(){
-  //   $('body').scrollspy({target: ".navigation"})
-  //   // $(window).on('load', this.onResize);
-  // }
-
-  componentDidUpdate(){
-    // $(window).on('resize', this.onResize);
-    // $('body').scrollspy({target: ".navigation"});
+  componentDidMount(){
     $(window).on('scroll', this.onScroll);
   }
 
-  // componentWillUnmount(){
-  //   window.removeEventListener("scroll", this.onScroll);
-  // }
-
-  onResize = (e) => {
-    // if(e) e.preventDefault();
-    this.props.handleResize();
+  componentDidUpdate(){
+    $(window).on('scroll', this.onScroll);
   }
+
 
   onScroll = (e) => {
     const currentOffset = $(window).scrollTop();
@@ -54,37 +36,17 @@ class Header extends React.Component {
 
 
   scroll = (e) => {
-    // if(e) e.preventDefault();
-    // window.removeEventListener("scroll", this.onScroll);
     $(window).off('scroll', this.onScroll);
     const hash = e.target.name;
 
     $('html, body').animate({
         scrollTop: $(`#${hash}`).offset().top
-    }, 1000, () => {
-      console.log('done');
-      // if(window.location.hash !== hash){
-      //   history.pushState(null, null, `#${hash}`);
-      //   // window.location.hash = k;
-      //   // window.stop();
-      // }
+    }, 1000, "swing", () => {
       return this.props.handleScroll();
     });
-
-    // const stop = this.props.sections[e.target.name]["min"];
-    // const start = $(window).scrollTop();
-    //
-    // this.props.handleClick({
-    //   "stop": stop,
-    //   "range": Math.abs( Math.ceil((stop - start) / 2) ),
-    //   "current": e.target.name
-    // });
-    // window.addEventListener("scroll", this.onScroll);
   }
 
   render(){
-    // window.addEventListener("scroll", this.onScroll);
-
     const navItems = this.props.links.map((link, i) => (
       <NavItem
         className="navButton"
@@ -118,7 +80,7 @@ class Header extends React.Component {
         <Navbar className="navigation" fixedTop>
           <Navbar.Header>
             <Navbar.Brand >
-              <div><img className="pull-left coffee" width={35} src={coffee}/><span className="brand">{"Sarah's Portfolio"}</span></div>
+              <div><img className="pull-left coffee" width={35} src={coffee} alt="coffee"/><span className="brand">{"Sarah's Portfolio"}</span></div>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

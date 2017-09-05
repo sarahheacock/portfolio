@@ -1,6 +1,5 @@
 import * as AdminActionTypes from '../actiontypes/admin';
 import axios from 'axios';
-import $ from 'jquery';
 
 import { messageData, messageStatus } from '../data/data';
 
@@ -12,11 +11,6 @@ export const updateState = (newState) => {
   }
 }
 
-export const handleResize = () => {
-  return {
-    type: AdminActionTypes.HANDLE_RESIZE
-  }
-}
 
 export const handleScroll = () => {
   return {
@@ -51,72 +45,3 @@ export const sayHello = (message) => {
       });
   }
 };
-
-
-export const handleClick = (newState) => {
-  return(dispatch) => {
-    //transitions to correct position
-    // if(screen.width <= 980) window.location.hash = newState.current;
-    // const max = Math.floor(newState.range/15);
-    // console.log("max", max);
-    //
-    // const stop = newState.stop;
-    // const start = $(window).scrollTop();
-    // const x = Math.abs(stop - start);
-    //
-    // const a = max * -1 / Math.pow(newState.range, 2);
-    // const pow = Math.pow((x - newState.range), 2);
-    // const y = Math.ceil(a * pow) + max;
-    // const change = (y <= 0) ? 1 : y;
-    // const time = 0.0001;
-    //
-    // if(stop > start) {
-    //   if(stop - start < change) document.body.scrolltop = stop;
-    //   else document.body.scrollTop += change;
-    // }
-    // else if(stop < start) {
-    //   if(start - stop < change) document.body.scrolltop = stop;
-    //   else document.body.scrollTop -= change;
-    // }
-    // else if(start === stop){
-    //   // window.location.hash = newState.current;
-    //   // document.body.scrolltop = stop;
-    //   return dispatch(handleScroll());
-    // }
-    //
-    //
-    // return window.setTimeout(function(){
-    //   return dispatch(handleClick(newState));
-    // }, time);
-    $('html, body').animate({
-        scrollTop: $(`#${newState.current}`).offset().top
-    }, 2000, function(){
-      console.log('done');
-      return handleClick(newState);
-    });
-
-  }
-}
-
-
-
-// export const getData = (url) => {
-//   return (dispatch) => {
-//
-//     return axios.get(url)
-//       .then(response => {
-//         console.log("response", response.data);
-//         dispatch(updateState(response.data));
-//       })
-//       .catch(error => {
-//         console.log("error", error);
-//
-//         dispatch(updateState({
-//           message: {
-//             error: "Unable to fetch data",
-//             success: ""
-//           }
-//         }));
-//       });
-//   }
-// };

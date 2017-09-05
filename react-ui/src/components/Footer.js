@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {Row, Col} from 'react-bootstrap';
 import { links } from '../data/data';
 
-var FaCoffee = require('react-icons/lib/fa/coffee');
-var FaHeart = require('react-icons/lib/fa/heart');
-var FaLinked = require('react-icons/lib/fa/linkedin');
-var FaGit = require('react-icons/lib/fa/github');
+const FaCoffee = require('react-icons/lib/fa/coffee');
+const FaHeart = require('react-icons/lib/fa/heart');
+// const FaLinked = require('react-icons/lib/fa/linkedin');
+// const FaGit = require('react-icons/lib/fa/github');
 
 const Footer = (props) => {
   return (
@@ -57,5 +56,3 @@ const Footer = (props) => {
 }
 
 export default Footer;
-
-Footer.propsTypes = {};

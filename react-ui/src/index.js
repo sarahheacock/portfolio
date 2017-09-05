@@ -9,20 +9,13 @@ import thunk from 'redux-thunk'
 import AdminReducer from './reducers/admin';
 
 //content
-import { data, messageData } from './data/data';
+import { messageData } from './data/data';
 
 
 import './stylesheets/index.css';
 import './stylesheets/buttons.css';
 //=============================================================\
 
-let sections = {};
-Object.keys(data).forEach(k =>
-  sections[k] = {
-    min: 0,
-    max: 0
-  }
-);
 
 let message = {};
 Object.keys(messageData).forEach(k =>
@@ -33,8 +26,7 @@ const initial = {
   project: -1,
   message: message,
   current: 'about',
-  last: 0,
-  sections: sections
+  last: 0
 }
 
 
