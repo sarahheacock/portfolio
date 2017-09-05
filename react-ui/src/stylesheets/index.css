@@ -164,8 +164,8 @@ p {
   /*width: 300px;*/
 }
 .projectPic{
-  width: 80%;
-  max-width: 250px;
+  /*width: 80%;*/
+  /*max-width: 250px;*/
   padding-top: 10%;
 }
 
@@ -186,6 +186,9 @@ p {
 .access h3{
   position: absolute;
 
+  width: 350px;
+  margin: 0 auto;
+
   padding: 1%;
   opacity: 0.0;
   margin-top: -150px;
@@ -195,7 +198,8 @@ p {
   letter-spacing: -1px;
    /* fallback color */
   background: rgba(0,0,0,0.9);
-  width: 300px;
+  /*width: 100%;*/
+
 
   -webkit-transition: opacity 2s; /* Safari */
   transition: opacity 2s;
