@@ -17,7 +17,7 @@ export const data = {
         title: "Pediatric Balance Scale",
         image: "Screen_Shot_2017-08-14_at_3.16.09_PM_ejjfar",
         info: "This web site provides a space for the clients to post their research progress.  The web site allows for easy image and pdf upload through drag and drop. While react drag and drop is not available in Safari and IE, the clients and I opted to use the more user friendly drag and drop since the clients would be the only users editing content.",
-        disclaimer: "The prototype listed below demonstrates the client’s editing capabilities. However, the prototype's content will be restored when the page is refreshed."
+        disclaimer: "The prototype listed below demonstrates the client’s editing capabilities. Please be courteous while editing."
       },
       {
         url: {
@@ -28,7 +28,7 @@ export const data = {
         title: "Patty's Pets",
         image: "Screen_Shot_2017-08-11_at_10.10.04_AM_ohxdqd.png",
         info: "This web site for the client (a new business owner) to change her content and rates as needed. The messaging system connects to her slack account to allow her to receive messages safely and easily.",
-        disclaimer: "The prototype listed below demonstrates the client’s editing capabilities. However, the prototype's content will be restored when the page is refreshed."
+        disclaimer: "The prototype listed below demonstrates the client’s editing capabilities. Please be courteous while editing."
       },
 
       // {
