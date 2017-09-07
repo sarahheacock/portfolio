@@ -14,6 +14,12 @@ const PORT = process.env.PORT || 5000;
 //======CONFIGURATION=========================================
 app.use(jsonParser());
 app.use(logger("dev"));
+app.use((req, res, next) => {
+  if(req.headers["x-forwarded-proto"] === "https"){
+    return next();
+  }
+  res.redirect("https://" + req.headers.host + req.url);
+});
 
 // Priority serve any static files.
 refreshRoutes.use(express.static(path.resolve(__dirname, '../react-ui/build')));
