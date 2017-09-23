@@ -4,7 +4,7 @@ export const data = {
   about: {
     image: "IMG_2509_a23chj",
     bold: "Hello, I'm Sarah...",
-    text: "I am a full stack web developer and react/redux enthusiast.  I specialize in creating dynamic web sites clients can easily edit on their own without having to compromise their site's performance or security.  I love spending my free time outside--hiking and rock climbing."
+    text: "I am a full stack web developer and react/redux enthusiast.  I specialize in creating dynamic web sites clients can easily edit on their own without having to compromise their site's performance or security.  When I am not coding over coffee, I love spending my free time outside--hiking and rock climbing."
   },
   projects: {
     portfolio: [
@@ -44,7 +44,7 @@ export const data = {
   },
   contact: {
     bold: "Want to get in touch?",
-    text: ["Whether you have any questions about my work, would like to see my resume, or have some feedback for me--I would love to hear from you!", "I will respond A.S.A.P." ,"" ,"Note: No spam/soliciting, please."]
+    text: ["Whether you have any questions about my work, would like to see my resume, have some feedback for me, or just want to chat about rock climbing--I would love to hear from you!", "I will respond A.S.A.P." ,"" ,"Note: No spam/soliciting, please."]
   }
 }
 
