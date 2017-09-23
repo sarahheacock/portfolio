@@ -21,7 +21,7 @@ const About = (props) => {
         <Col sm={7} className="columns">
           <h3>{props.data.bold}</h3>
           <hr />
-          <p>{props.data.text}</p>
+          <h4>{props.data.text}</h4>
         </Col>
       </Row>
     </div>

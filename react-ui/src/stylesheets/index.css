@@ -28,7 +28,9 @@ header{
   z-index: -1;
 }
 
-
+h4 {
+  line-height: 150%;
+}
 
 .carousel-content {
   /*max-width: 1200px;*/

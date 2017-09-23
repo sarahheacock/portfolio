@@ -10,7 +10,7 @@ const Contact = (props) => {
       <Col sm={6} className="columns">
         <h3>{props.data.bold}</h3>
         <hr />
-        {props.data.text.map((d, i) => <p key={`contact${i}`}>{d}</p>)}
+        {props.data.text.map((d, i) => <h4 key={`contact${i}`}>{d}</h4>)}
       </Col>
       <Col sm={6} className="columns">
         <ContactForm
