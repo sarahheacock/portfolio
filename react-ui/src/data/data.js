@@ -21,6 +21,16 @@ export const data = {
       },
       {
         url: {
+          final: "https://young-mountain-46461.herokuapp.com/",
+          github: "https://github.com/sarahheacock/sarahbbfinal"
+        },
+        title: "Bed & Breakfast",
+        image: "Screen_Shot_2017-09-23_at_10.19.29_AM_p8kp3m",
+        info: "This web site is not for a particular client but provides small bed & breakfast establishments a space to create a customizable web site to fit their booking needs. Clients can login through email or facebook to select and book their own reservations. Admin can also book reservations, cancel reservations, and charge clients using the web site. This web site is an example so feel free to book as many fake reservations as you like. If you would rather use a fake credit card number, 5555555555554444 with 555 security code will work.",
+        disclaimer: "Due to the sensitivity of information, I did not create an admin prototype for this web site. If you would like to check out the admin features, contact me below and I can create a temporary password for you."
+      },
+      {
+        url: {
           final: "https://pattys-pet-pals.herokuapp.com",
           prototype: "https://polar-coast-33051.herokuapp.com/",
           github: "https://github.com/sarahheacock/pattys-pets-pals",
@@ -29,23 +39,7 @@ export const data = {
         image: "Screen_Shot_2017-08-11_at_10.10.04_AM_ohxdqd.png",
         info: "This web site for the client (a new business owner) to change her content and rates as needed. The messaging system connects to her slack account to allow her to receive messages safely and easily.",
         disclaimer: "The prototype listed below demonstrates the client’s editing capabilities. Please be courteous while editing."
-      },
-
-      // {
-      //   url: {
-      //     final: "#",
-      //     prototype: "#",
-      //     github: "#",
-      //   },
-      //   title: "Bed and Breakfast",
-      //   title2: "Coming Soon",
-      //   image: "https://images.pexels.com/photos/406972/pexels-photo-406972.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
-      //   info: {
-      //     about: "Pork belly you probably haven't heard of them coloring book kitsch. Ennui vape pok pok cardigan. Bushwick hot chicken food truck waistcoat, art party thundercats offal poutine venmo typewriter vexillologist.",
-      //     front: "Truffaut raw denim +1 keffiyeh roof party sustainable whatever 90's, polaroid palo santo flannel. Copper mug vexillologist palo santo taxidermy. Neutra tbh keytar, tote bag godard roof party iceland sartorial ugh. Cornhole DIY poutine sriracha deep v snackwave master cleanse waistcoat hexagon kombucha keytar craft beer pour-over.",
-      //     back: "Blog williamsburg live-edge crucifix. Ramps chartreuse kombucha single-origin coffee. La croix salvia vape XOXO leggings before they sold out iceland jean shorts plaid. Ethical enamel pin before they sold out, intelligentsia gentrify aesthetic beard tote bag readymade williamsburg sriracha messenger bag. Heirloom asymmetrical chartreuse kogi gluten-free, mumblecore mlkshk readymade."
-      //   }
-      // }
+      }
     ]
   },
   contact: {
