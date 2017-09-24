@@ -21,8 +21,8 @@ export const data = {
       },
       {
         url: {
-          final: "https://young-mountain-46461.herokuapp.com/",
-          github: "https://github.com/sarahheacock/sarahbbfinal"
+          final: "https://sarahbedbreakfast.herokuapp.com/",
+          github: "https://github.com/sarahheacock/sarahbedbreakfast"
         },
         title: "Bed & Breakfast",
         image: "Screen_Shot_2017-09-23_at_10.19.29_AM_p8kp3m",
