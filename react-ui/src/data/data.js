@@ -21,6 +21,16 @@ export const data = {
       },
       {
         url: {
+          final: "https://angular2recipebox.herokuapp.com/",
+          github: "https://github.com/sarahheacock/Angular2RecipeBox",
+        },
+        title: "Recipe Box (In Progress)",
+        image: "Screen_Shot_2017-10-30_at_5.06.11_PM_p99imw",
+        info: "This web app creates a recipe box from http://orangette.net/. Users are then able to sign in securely through gmail or facebook in order to add their own recipes and create their own shopping list.",
+        disclaimer: "Recipes are created by and owned by http://orangette.net/."
+      },
+      {
+        url: {
           final: "https://sarahbedbreakfast.herokuapp.com/",
           github: "https://github.com/sarahheacock/sarahbedbreakfast"
         },
